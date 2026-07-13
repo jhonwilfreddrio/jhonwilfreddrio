@@ -91,10 +91,37 @@
   /**
    * Mobile nav toggle
    */
-  on("click", ".mobile-nav-toggle", function (e) {
-    select("#navbar").classList.toggle("navbar-mobile");
-    this.classList.toggle("bi-list");
-    this.classList.toggle("bi-x");
+  const setNavState = (isOpen) => {
+    const toggle = select(".mobile-nav-toggle");
+    const navbar = select("#navbar");
+    if (!toggle || !navbar) return;
+
+    navbar.classList.toggle("navbar-mobile", isOpen);
+    document.body.classList.toggle("mobile-nav-active", isOpen);
+
+    const icon = toggle.querySelector("i");
+    if (icon) {
+      icon.className = isOpen ? "bi bi-x" : "bi bi-list";
+    }
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  };
+
+  on("click", ".mobile-nav-toggle", function () {
+    setNavState(!select("#navbar").classList.contains("navbar-mobile"));
+  });
+
+  // Tapping the backdrop (outside the menu list) closes the menu
+  on("click", "#navbar", function (e) {
+    if (e.target === this) {
+      setNavState(false);
+    }
+  });
+
+  on("keydown", "body", function (e) {
+    if (e.key === "Escape") {
+      setNavState(false);
+    }
   });
 
   /**
@@ -120,10 +147,7 @@
         this.classList.add("active");
 
         if (navbar.classList.contains("navbar-mobile")) {
-          navbar.classList.remove("navbar-mobile");
-          let navbarToggle = select(".mobile-nav-toggle");
-          navbarToggle.classList.toggle("bi-list");
-          navbarToggle.classList.toggle("bi-x");
+          setNavState(false);
         }
 
         if (this.hash == "#header") {

@@ -39,6 +39,12 @@
     <span class="theme-toggle__text">Dark</span>
   </button>
 
+  <!-- Kept outside #header: any ancestor with backdrop-filter becomes the containing
+       block for position:fixed, which pins the button to the hero card, not the viewport. -->
+  <button class="mobile-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar">
+    <i class="bi bi-list"></i>
+  </button>
+
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
@@ -67,7 +73,6 @@
           <li><a class="nav-link" href="#portfolio">Work</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
       <div class="social-links">
@@ -77,11 +82,11 @@
         <a href="https://www.facebook.com/aysitipor" class="facebook" title="Facebook">
           <i class="bi bi-facebook"></i>
         </a>
-        <a href="https://www.threads.net/@jhonwilfred04" class="threads" title="Threads">
-          <img src="https://static.vecteezy.com/system/resources/previews/026/845/718/original/threads-social-media-logo-icon-free-png.png" alt="Threads Logo" style="height: 20px; vertical-align: middle;">
+        <a href="https://www.threads.net/@jhonwilfred04" class="threads" title="Threads" aria-label="Threads">
+          <svg class="social-svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/></svg>
         </a>
-        <a href="https://x.com/jhonwilfred04" class="x-twitter" title="X (formerly Twitter)">
-          <img src="https://i.pinimg.com/originals/82/a4/c9/82a4c9bd2c4e1708c2a0b8fd6a96c8da.png" alt="X Logo" style="height: 20px; vertical-align: middle;">
+        <a href="https://x.com/jhonwilfred04" class="x-twitter" title="X (formerly Twitter)" aria-label="X">
+          <svg class="social-svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
         </a>
       </div>
 
@@ -486,7 +491,7 @@
       <div class="row portfolio-container">
 
         <!-- Shopee Dispatch Display System -->
-        <div class="col-lg-12 portfolio-item filter-systems">
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
           <div class="csf-card csf-card--has-image">
             <div class="csf-accent-bar"></div>
             <div class="csf-preview-col">
@@ -522,7 +527,7 @@
         </div>
 
         <!-- Kpick ERP-lite -->
-        <div class="col-lg-12 portfolio-item filter-systems">
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
           <div class="csf-card csf-card--has-image">
             <div class="csf-accent-bar"></div>
             <div class="csf-preview-col">
@@ -558,7 +563,7 @@
         </div>
 
         <!-- Kpick Telegram Bot -->
-        <div class="col-lg-12 portfolio-item filter-systems">
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
           <div class="csf-card csf-card--has-image">
             <div class="csf-accent-bar"></div>
             <div class="csf-preview-col csf-preview-placeholder">
@@ -595,7 +600,7 @@
         </div>
 
         <!-- ── Excel VBA ──────────────────────────────────────── -->
-        <div class="col-lg-4 col-md-6 portfolio-item filter-excel">
+        <div class="col-12 col-sm-6 col-lg-4 col-md-6 portfolio-item filter-excel">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/excel1.png" class="img-fluid" alt="Ordering System">
             <div class="portfolio-info">
@@ -609,7 +614,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-excel">
+        <div class="col-12 col-sm-6 col-lg-4 col-md-6 portfolio-item filter-excel">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/excel3.png" class="img-fluid" alt="Attendance Checker">
             <div class="portfolio-info">
@@ -623,7 +628,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-excel">
+        <div class="col-12 col-sm-6 col-lg-4 col-md-6 portfolio-item filter-excel">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/excel2.png" class="img-fluid" alt="Sudoku in Excel VBA">
             <div class="portfolio-info">
@@ -638,7 +643,7 @@
         </div>
 
         <!-- ── Web ───────────────────────────────────────────── -->
-        <div class="col-lg-6 col-md-6 portfolio-item filter-web">
+        <div class="col-12 col-sm-6 col-lg-6 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/kpick-website.png" class="img-fluid" alt="K-Pick Trading Corp Website">
             <div class="portfolio-info">
@@ -652,7 +657,7 @@
           </div>
         </div>
 
-        <div class="col-lg-6 col-md-6 portfolio-item filter-web">
+        <div class="col-12 col-sm-6 col-lg-6 col-md-6 portfolio-item filter-web">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/itcmu.jpeg" class="img-fluid" alt="Revised CMU IT Department Website">
             <div class="portfolio-info">
@@ -697,8 +702,12 @@
             <div class="social-links">
               <a href="https://www.instagram.com/wilfreddrio/" class="instagram"><i class="bi bi-instagram"></i></a>
               <a href="https://www.facebook.com/aysitipor" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="https://x.com/jhonwilfred04" class="twitter" style="background-color: #fff; border-radius: 10%;"><img src="https://i.pinimg.com/originals/82/a4/c9/82a4c9bd2c4e1708c2a0b8fd6a96c8da.png" alt="X Logo" style="height: 20px; vertical-align: middle;"></a>
-              <a href="https://www.threads.net/@jhonwilfred04" class="twitter"><img src="https://static.vecteezy.com/system/resources/previews/026/845/718/original/threads-social-media-logo-icon-free-png.png" alt="Threads Logo" style="height: 20px; vertical-align: middle;"></a>
+              <a href="https://x.com/jhonwilfred04" class="x-twitter" aria-label="X">
+                <svg class="social-svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+              </a>
+              <a href="https://www.threads.net/@jhonwilfred04" class="threads" aria-label="Threads">
+                <svg class="social-svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/></svg>
+              </a>
             </div>
           </div>
         </div>
