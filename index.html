@@ -151,7 +151,7 @@
           <p>
             I'm a <strong>Systems &amp; Automation Engineer</strong> at K-Pick Trading Corp, a Korean medical supplies distributor operating across the Philippines. My job is to build the systems the business runs on — not as a side project, but as the primary infrastructure their teams use every day.
             <br><br>
-            I've built a <strong>real-time dispatch system</strong> (Node.js + Socket.IO) that coordinates Shopee Instant Delivery orders across office and packing staff. A <strong>PostgreSQL-backed ERP prototype</strong> (FastAPI + Docker) that replaces Excel-based inventory tracking with a proper stock movement ledger and multi-platform order import. A <strong>Telegram bot</strong> (Python + Ollama + Google Sheets API) that lets staff query live inventory in plain English using a locally-hosted LLM. And the company's <strong>public website</strong> for their exclusive Korean medical brands.
+            I've built a <strong>real-time dispatch system</strong> (Node.js + Socket.IO) that coordinates Shopee Instant Delivery orders across office and packing staff. A <strong>PostgreSQL-backed ERP-lite</strong> (FastAPI) in daily dry-run use — a stock movement ledger, multi-platform order import, a barcode-scan packing pipeline, and finance dashboards replacing Excel-based inventory tracking. A <strong>Telegram bot</strong> (Python + Ollama + Google Sheets API) that lets staff query live inventory in plain English using a locally-hosted LLM. And the company's <strong>public website</strong> at kpicktradingcorp.com for their exclusive Korean medical brands.
             <br><br>
             The tools change by project — <strong>Excel VBA</strong>, <strong>SQL</strong>, <strong>Python</strong>, <strong>Node.js</strong>, <strong>FastAPI</strong> — but the goal is always the same: understand how the operation actually works, find where it breaks down, and build something the team adopts without being told to.
           </p>
@@ -307,9 +307,9 @@
             <p><em>Kpick Trading Corporation — Korean medical supplies distributor, Philippines</em></p>
             <p>
               - Built and deployed the <strong>Shopee Dispatch Display System</strong>: a real-time Node.js + Socket.IO web app that coordinates Shopee Instant Delivery orders across office and packing staff, with audio alerts, 5-stage status tracking, nudge system for urgent orders, and JSON persistence through server restarts<br>
-              - Built the <strong>Kpick ERP-lite</strong>: PostgreSQL + FastAPI inventory backend with product master, BOX/PC unit conversion, stock movement ledger, multi-platform order import (Shopee, Lazada, TikTok), and duplicate order detection across 3-day windows<br>
+              - Built the <strong>Kpick ERP-lite</strong>: PostgreSQL + FastAPI inventory and operations system — stock movement ledger, multi-platform order import (Shopee, Lazada, TikTok) with duplicate detection, barcode-scan packing pipeline, finance and executive dashboards, and automated DOCX daily reports — now in daily dry-run use processing 500–600 orders/day<br>
               - Built the <strong>Kpick Telegram Inventory Bot</strong>: Python bot connecting Telegram, Google Sheets, and a locally-hosted LLM (Ollama/Qwen 2.5 on Mac Mini) for plain-English staff inventory queries with safe AI architecture<br>
-              - Built <strong>kpicktradingcorp.com</strong>: company website for three exclusive Korean medical brands (Sungshim, EROP, Hansol), including product pages and a quote/PO request system<br>
+              - Built and deployed <strong>kpicktradingcorp.com</strong>: 20+ page company website for three exclusive Korean medical brands (Sungshim, EROP, Insufine), with product detail pages, an interactive Learning Centre, and a quote/PO generation system with PDF output<br>
               - Redesigned inventory transaction workflows previously avoided by staff — resulting in full team adoption
             </p>
           </div>
@@ -538,9 +538,9 @@
                 <div class="csf-icon-wrap"><i class="bi bi-server"></i></div>
                 <div>
                   <span class="case-file-label">coffee_erp_db/</span>
-                  <h4 class="csf-title">Kpick ERP-lite — Inventory Backend</h4>
+                  <h4 class="csf-title">Kpick ERP-lite — Inventory &amp; Operations System</h4>
                   <div class="csf-tags">
-                    <span>PostgreSQL</span><span>FastAPI</span><span>Python</span><span>Docker</span><span>Shopee · Lazada · TikTok import</span>
+                    <span>PostgreSQL 18</span><span>FastAPI</span><span>Python</span><span>Role-based auth</span><span>Shopee · Lazada · TikTok import</span><span>Barcode scanning</span>
                   </div>
                 </div>
               </div>
@@ -551,11 +551,11 @@
                 </div>
                 <div class="csf-col">
                   <span class="case-key">What I Built</span>
-                  <p>A PostgreSQL-backed ERP prototype with a FastAPI REST API and Docker Compose setup. Features: product master with parent/child SKUs, BOX-to-PC unit conversion, stock movement ledger (stock is never edited directly — all changes go through movements), multi-platform picklist import (Shopee, Lazada, TikTok), duplicate order detection across 3-day windows, learned platform-to-product mappings, and staff user accounts. Seeded from the live Excel workbook.</p>
+                  <p>A PostgreSQL 18 + FastAPI system covering the full operation: product master with BOX-to-PC unit conversion, an append-only stock movement ledger (stock is never edited directly), multi-platform packing-list import (Shopee, Lazada, TikTok) with duplicate detection against every confirmed order, an order-management packing board (pending → packing → packed) with a mobile barcode Checker Mode for warehouse phones, per-staff scan leaderboards and an error accountability log, returns/cancellations with reversal movements, direct SDD sales, a finance module (KRW landed cost, platform fees, freight tiers), an executive dashboard with sales-mix P&amp;L, and one-click DOCX daily and shipment reports. Role-based access with five roles plus admin-editable custom roles.</p>
                 </div>
                 <div class="csf-col">
                   <span class="case-key">Result</span>
-                  <p>Foundation laid for replacing Excel-based inventory tracking with a proper database-backed system. API fully documented, dry-run import logic working across all three platforms, duplicate detection preventing double-processing of orders.</p>
+                  <p>In beta dry-run at K-Pick, running in parallel with the spreadsheets it's replacing — used daily by office and warehouse staff to process 500–600 orders a day through the packing board, with an audit trail on every stock change and a full backup/restore workflow between the live Mac Mini and the dev machine.</p>
                 </div>
               </div>
             </div>
@@ -649,7 +649,7 @@
             <div class="portfolio-info">
               <span class="case-file-label">kpicktradingcorp.com</span>
               <h4>K-Pick Trading Corp Website</h4>
-              <p class="portfolio-sub">Company site for a Korean medical supplies distributor — Sungshim, EROP, Hansol brands. Quote/PO request system, product pages, nationwide B2B coverage.</p>
+              <p class="portfolio-sub">Deployed company site for a Korean medical supplies distributor — exclusive PH distributor of Sungshim, EROP, and Insufine. 20+ pages: brand and product detail pages, an interactive Learning Centre with device-education modules, and a quote/PO generator with PDF output on company letterhead.</p>
               <div class="portfolio-links">
                 <a href="https://kpicktradingcorp.com" target="_blank" rel="noopener" title="Visit Site"><i class="fas fa-external-link-alt"></i></a>
               </div>
