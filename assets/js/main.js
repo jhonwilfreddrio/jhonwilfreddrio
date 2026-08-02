@@ -180,34 +180,52 @@
   );
 
   /**
-   * Activate/show sections on load with hash links
+   * Activate/show sections on load and on hash change (e.g. a link
+   * to index.html#contact, or the browser back/forward buttons)
    */
+  const showSectionFromHash = () => {
+    let header = select("#header");
+    let sections = select("section", true);
+    let navlinks = select("#navbar .nav-link", true);
+
+    navlinks.forEach((item) => {
+      if (item.getAttribute("href") == (window.location.hash || "#header")) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+
+    if (!window.location.hash || window.location.hash == "#header") {
+      header.classList.remove("header-top");
+      sections.forEach((item) => {
+        item.classList.remove("section-show");
+      });
+      return;
+    }
+
+    let target = select(window.location.hash);
+    if (target) {
+      header.classList.add("header-top");
+
+      setTimeout(function () {
+        sections.forEach((item) => {
+          item.classList.remove("section-show");
+        });
+        target.classList.add("section-show");
+      }, 350);
+
+      scrollto(window.location.hash);
+    }
+  };
+
   window.addEventListener("load", () => {
     if (window.location.hash) {
-      let initial_nav = select(window.location.hash);
-
-      if (initial_nav) {
-        let header = select("#header");
-        let navlinks = select("#navbar .nav-link", true);
-
-        header.classList.add("header-top");
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute("href") == window.location.hash) {
-            item.classList.add("active");
-          } else {
-            item.classList.remove("active");
-          }
-        });
-
-        setTimeout(function () {
-          initial_nav.classList.add("section-show");
-        }, 350);
-
-        scrollto(window.location.hash);
-      }
+      showSectionFromHash();
     }
   });
+
+  window.addEventListener("hashchange", showSectionFromHash);
 
   /**
    * Skills animation
