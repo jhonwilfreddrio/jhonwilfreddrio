@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jhon Wilfred Drio — NFC Business Card (Print Artwork)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       PRINT SPEC — CR80 / ISO 7810 ID-1 (standard NFC PVC card)
+         Trim      85.6 × 54.0 mm
+         Bleed     2 mm all sides   -> artboard 89.6 × 58.0 mm
+         Safe area 4 mm inside trim -> 77.6 × 46.0 mm
+       Colours + type lifted from assets/css/style.css and nfc.html.
+       ============================================================ */
+
+    :root {
+      /* --- portfolio design tokens --- */
+      --bg: #262b33;
+      --bg-deep: #20242b;
+      --text-strong: #eef2f8;
+      --text-soft: #b9c2cf;
+      --text-muted: #808a99;
+      --accent: #f0a500;
+      --accent-2: #d4870a;
+
+      /* --- print geometry --- */
+      --bleed: 2mm;
+      --trim-w: 85.6mm;
+      --trim-h: 54mm;
+      --art-w: 89.6mm;
+      --art-h: 58mm;
+      --safe: 6mm;
+      /* bleed + 4mm */
+
+      /* --- on-screen magnification (reset to 1 for print) --- */
+      --preview: 3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #14171c;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 24px 64px;
+      color: var(--text-soft);
+      background: #14171c;
+      font-family: Inter, ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ---------------- screen chrome (never prints) ---------------- */
+
+    .toolbar {
+      max-width: 900px;
+      margin: 0 auto 28px;
+      padding: 18px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      align-items: center;
+      border-radius: 18px;
+      background: var(--bg);
+      box-shadow: 8px 8px 20px rgba(0, 0, 0, .5), -8px -8px 20px rgba(255, 255, 255, .05);
+    }
+
+    .toolbar h1 {
+      flex: 1 1 220px;
+      margin: 0;
+      color: var(--text-strong);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .toolbar h1 span {
+      display: block;
+      margin-top: 4px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      padding: 9px 16px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--text-strong);
+      background: var(--bg);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, .5), -4px -4px 10px rgba(255, 255, 255, .05);
+      font: 600 12px/1 Inter, sans-serif;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      box-shadow: inset 3px 3px 7px rgba(0, 0, 0, .5), inset -3px -3px 7px rgba(255, 255, 255, .05);
+    }
+
+    .btn-primary {
+      color: #20242b;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .btn[aria-pressed="true"] {
+      color: var(--accent);
+    }
+
+    .sheet {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .caption {
+      margin: 0 0 10px;
+      color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .caption b {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ---------------- artboard scaffolding ---------------- */
+
+    .stage {
+      width: calc(var(--art-w) * var(--preview));
+      height: calc(var(--art-h) * var(--preview));
+      margin: 0 0 44px;
+    }
+
+    .card {
+      position: relative;
+      width: var(--art-w);
+      height: var(--art-h);
+      overflow: hidden;
+      transform: scale(var(--preview));
+      transform-origin: top left;
+      background: var(--bg);
+      color: var(--text-soft);
+      font-family: Inter, sans-serif;
+    }
+
+    /* full-bleed background: deep vignette so the flat PVC print still
+       reads with the depth the neumorphic site has on screen */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(120% 150% at 12% 0%, #313742 0%, #262b33 46%, #1e222a 100%);
+    }
+
+    .card>* {
+      position: relative;
+    }
+
+    .pad {
+      position: absolute;
+      inset: var(--safe);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---------------- FRONT ---------------- */
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.9mm;
+      font-weight: 500;
+      letter-spacing: .14em;
+      line-height: 1;
+    }
+
+    .name {
+      margin: 3.4mm 0 0;
+      color: var(--text-strong);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 5.3mm;
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -.03em;
+    }
+
+    .rule {
+      width: 17mm;
+      height: 1.1mm;
+      margin: 3mm 0 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .role {
+      margin: 3.2mm 0 0;
+      max-width: 54mm;
+      color: var(--text-soft);
+      font-size: 2.25mm;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .005em;
+    }
+
+    .role em {
+      display: block;
+      color: var(--text-muted);
+      font-size: 2mm;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* capability strip — the site's snake_case mono voice, holds the
+       middle of the card so the layout doesn't fall into two blocks */
+    .tags {
+      margin: auto 0 3.2mm;
+      padding-top: 2.6mm;
+      color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.7mm;
+      font-weight: 400;
+      letter-spacing: .04em;
+      line-height: 1;
+      border-top: .25mm solid rgba(185, 194, 207, .16);
+    }
+
+    .tags span {
+      color: rgba(240, 165, 0, .75);
+      padding: 0 .5mm;
+    }
+
+    .foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3mm;
+    }
+
+    .org {
+      margin: 0;
+      color: var(--text-muted);
+      font-family: Poppins, sans-serif;
+      font-size: 1.85mm;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .org b {
+      display: block;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    /* Brand mark, top-right of the front.
+       Uses site-icon-white-trim.png — site-icon-white.png with its transparent
+       padding cropped off (911 x 828), so the ink sits flush with the safe area
+       instead of floating inside an invisible margin. At 12.6mm wide that is
+       ~1840 dpi, and the thinnest stroke in the artwork (22px) lands at
+       ~0.24mm — thick enough to survive a white knockout on dark PVC. */
+    .mark {
+      position: absolute;
+      top: var(--safe);
+      right: var(--safe);
+      width: 12.6mm;
+      /* 12.6 / 1.1002 — locked to the artwork's true aspect ratio */
+      height: 11.45mm;
+    }
+
+    .mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* oversized ghost glyph bleeding off the right edge */
+    .ghost {
+      position: absolute;
+      right: -4mm;
+      bottom: -9mm;
+      color: rgba(240, 165, 0, .06);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 34mm;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.06em;
+      user-select: none;
+    }
+
+    /* ---------------- BACK ---------------- */
+
+    .back-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 23mm;
+      gap: 4mm;
+      align-items: start;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 3.1mm;
+      margin-top: 3.4mm;
+    }
+
+    .row {
+      display: block;
+    }
+
+    .row dt {
+      margin: 0 0 .7mm;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.55mm;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .82;
+    }
+
+    .row dd {
+      margin: 0;
+      color: var(--text-strong);
+      font-size: 2.25mm;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -.005em;
+    }
+
+    /* QR tile — dark-on-light for reliable scanning by cheap readers */
+    .qr {
+      width: 23mm;
+      padding: 1.6mm;
+      border-radius: 2.4mm;
+      background: #f4f6fa;
+    }
+
+    .qr svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .qr-note {
+      margin: 1.6mm 0 0;
+      color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.5mm;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .tap {
+      margin-top: auto;
+      padding-top: 2.6mm;
+      display: flex;
+      align-items: center;
+      gap: 1.8mm;
+      border-top: .25mm solid rgba(185, 194, 207, .18);
+    }
+
+    .tap svg {
+      width: 3.6mm;
+      height: 3.6mm;
+      flex: none;
+      color: var(--accent);
+    }
+
+    .tap p {
+      margin: 0;
+      color: var(--text-soft);
+      font-family: Poppins, sans-serif;
+      font-size: 1.85mm;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .tap p span {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ---------------- guides + crop marks ---------------- */
+
+    .guides {
+      position: absolute;
+      inset: 0;
+      display: none;
+      pointer-events: none;
+    }
+
+    body.show-guides .guides {
+      display: block;
+    }
+
+    .guide-trim,
+    .guide-safe {
+      position: absolute;
+      border: .2mm dashed;
+    }
+
+    .guide-trim {
+      inset: var(--bleed);
+      border-color: rgba(255, 92, 92, .85);
+    }
+
+    .guide-safe {
+      inset: var(--safe);
+      border-color: rgba(90, 200, 255, .7);
+    }
+
+    .marks {
+      position: absolute;
+      inset: 0;
+      display: none;
+      pointer-events: none;
+    }
+
+    body.show-marks .marks {
+      display: block;
+    }
+
+    .marks i {
+      position: absolute;
+      width: 1.4mm;
+      height: 1.4mm;
+      border: 0 solid #000;
+    }
+
+    .marks i:nth-child(1) {
+      top: var(--bleed);
+      left: 0;
+      border-top-width: .2mm;
+      width: 1.4mm;
+      height: 0;
+    }
+
+    .marks i:nth-child(2) {
+      top: 0;
+      left: var(--bleed);
+      border-left-width: .2mm;
+      width: 0;
+      height: 1.4mm;
+    }
+
+    .marks i:nth-child(3) {
+      top: var(--bleed);
+      right: 0;
+      border-top-width: .2mm;
+      width: 1.4mm;
+      height: 0;
+    }
+
+    .marks i:nth-child(4) {
+      top: 0;
+      right: var(--bleed);
+      border-left-width: .2mm;
+      width: 0;
+      height: 1.4mm;
+    }
+
+    .marks i:nth-child(5) {
+      bottom: var(--bleed);
+      left: 0;
+      border-top-width: .2mm;
+      width: 1.4mm;
+      height: 0;
+    }
+
+    .marks i:nth-child(6) {
+      bottom: 0;
+      left: var(--bleed);
+      border-left-width: .2mm;
+      width: 0;
+      height: 1.4mm;
+    }
+
+    .marks i:nth-child(7) {
+      bottom: var(--bleed);
+      right: 0;
+      border-top-width: .2mm;
+      width: 1.4mm;
+      height: 0;
+    }
+
+    .marks i:nth-child(8) {
+      bottom: 0;
+      right: var(--bleed);
+      border-left-width: .2mm;
+      width: 0;
+      height: 1.4mm;
+    }
+
+    /* ---------------- PRINT ---------------- */
+
+    @page {
+      size: 89.6mm 58mm;
+      margin: 0;
+    }
+
+    @media print {
+      :root {
+        --preview: 1;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      .toolbar,
+      .caption {
+        display: none !important;
+      }
+
+      .sheet {
+        max-width: none;
+      }
+
+      .stage {
+        width: var(--art-w);
+        height: var(--art-h);
+        margin: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .stage:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      body.show-guides .guides {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="show-guides">
+
+  <div class="toolbar">
+    <h1>NFC Business Card <span>CR80 · 85.6 × 54 mm · 2 mm bleed</span></h1>
+    <button class="btn" type="button" id="toggle-guides" aria-pressed="true">Guides</button>
+    <button class="btn" type="button" id="toggle-marks" aria-pressed="false">Crop marks</button>
+    <button class="btn btn-primary" type="button" id="print">Print / Save PDF</button>
+  </div>
+
+  <div class="sheet">
+
+    <!-- ==================== FRONT ==================== -->
+    <p class="caption">Artboard 01 — <b>front</b> · identity</p>
+    <div class="stage">
+      <div class="card" id="card-front">
+        <div class="ghost" aria-hidden="true">&lt;/&gt;</div>
+
+        <div class="mark">
+          <img src="assets/img/site-icon-white-trim.png" alt="Jhon Wilfred Drio logo" width="911" height="828">
+        </div>
+
+        <div class="pad">
+          <p class="eyebrow">systems_that_work</p>
+          <p class="name">Jhon Wilfred<br>Drio</p>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="role">
+            System &amp; Automation Engineer
+            <em>Technical Manager</em>
+          </p>
+
+          <p class="tags">
+            erp<span>·</span>automation<span>·</span>integrations<span>·</span>internal_tools
+          </p>
+
+          <div class="foot">
+            <p class="org">
+              <b>K-Pick Trading Corporation</b>
+              Navotas City · Metro Manila · PH
+            </p>
+          </div>
+        </div>
+
+        <div class="marks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="guides" aria-hidden="true">
+          <div class="guide-trim"></div>
+          <div class="guide-safe"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== BACK ==================== -->
+    <p class="caption">Artboard 02 — <b>back</b> · contact + tap</p>
+    <div class="stage">
+      <div class="card" id="card-back">
+        <div class="pad">
+          <p class="eyebrow">ping_me</p>
+
+          <div class="back-grid">
+            <dl class="contact">
+              <div class="row">
+                <dt>mobile</dt>
+                <dd>+63 908 591 8691</dd>
+              </div>
+              <div class="row">
+                <dt>email</dt>
+                <dd>jhonwilfreddrio@gmail.com</dd>
+              </div>
+              <div class="row">
+                <dt>web</dt>
+                <dd>jhonwilfreddrio.netlify.app</dd>
+              </div>
+              <div class="row">
+                <dt>based_in</dt>
+                <dd>Navotas City, Metro Manila</dd>
+              </div>
+            </dl>
+
+            <div>
+              <div class="qr" id="qr"></div>
+              <p class="qr-note">scan</p>
+            </div>
+          </div>
+
+          <div class="tap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
+              <path d="M6.5 8.5a7 7 0 0 1 0 7" />
+              <path d="M10.5 5.5a12 12 0 0 1 0 13" />
+              <path d="M14.5 2.8a17 17 0 0 1 0 18.4" />
+            </svg>
+            <p>Tap to save contact <span>· or scan the code</span></p>
+          </div>
+        </div>
+
+        <div class="marks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="guides" aria-hidden="true">
+          <div class="guide-trim"></div>
+          <div class="guide-safe"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script>
+    (() => {
+      const CARD_URL = "https://jhonwilfreddrio.netlify.app";
+
+      /* ---- vector QR, so it stays crisp at any print resolution ---- */
+      const host = document.getElementById("qr");
+      try {
+        const qr = qrcode(0, "M");           // auto version, ~15% error correction
+        qr.addData(CARD_URL);
+        qr.make();
+
+        const n = qr.getModuleCount();
+        const quiet = 2;                     // quiet zone in modules (tile padding adds the rest)
+        const size = n + quiet * 2;
+        let path = "";
+        for (let r = 0; r < n; r++) {
+          for (let c = 0; c < n; c++) {
+            if (qr.isDark(r, c)) path += `M${c + quiet} ${r + quiet}h1v1h-1z`;
+          }
+        }
+        host.innerHTML =
+          `<svg viewBox="0 0 ${size} ${size}" shape-rendering="crispEdges" role="img" aria-label="QR code linking to jhonwilfreddrio.netlify.app">` +
+          `<rect width="${size}" height="${size}" fill="#f4f6fa"/>` +
+          `<path d="${path}" fill="#20242b"/></svg>`;
+      } catch (err) {
+        host.innerHTML =
+          '<p style="margin:0;padding:4mm 1mm;color:#20242b;font:600 1.5mm/1.4 Inter,sans-serif;text-align:center">' +
+          'QR library offline — reconnect and reload before printing.</p>';
+      }
+
+      /* ---- screen controls ---- */
+      const wire = (id, cls) => {
+        const btn = document.getElementById(id);
+        btn.addEventListener("click", () => {
+          const on = document.body.classList.toggle(cls);
+          btn.setAttribute("aria-pressed", String(on));
+        });
+      };
+      wire("toggle-guides", "show-guides");
+      wire("toggle-marks", "show-marks");
+      document.getElementById("print").addEventListener("click", () => window.print());
+    })();
+  </script>
+</body>
+
+</html>
