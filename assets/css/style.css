@@ -2394,6 +2394,102 @@ body[data-theme="light"] .avail-true {
 }
 
 /*--------------------------------------------------------------
+# Digital contact actions
+--------------------------------------------------------------*/
+.contact-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-action {
+  min-height: 44px;
+  padding: 11px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  color: var(--text-strong);
+  background: var(--bg);
+  box-shadow: var(--nm-raised-sm);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  transition: color 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.contact-action:hover,
+.contact-action:focus-visible {
+  color: var(--accent);
+}
+
+.contact-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contact-action:active {
+  box-shadow: var(--nm-inset-sm);
+}
+
+.contact-action-primary {
+  color: #20242b;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.contact-action-primary:hover,
+.contact-action-primary:focus-visible {
+  color: #20242b;
+  filter: brightness(1.08);
+}
+
+body[data-theme="light"] .contact-action-primary,
+body[data-theme="light"] .contact-action-primary:hover,
+body[data-theme="light"] .contact-action-primary:focus-visible {
+  color: #171a20;
+}
+
+body[data-theme="light"] .contact-action:focus-visible {
+  outline-color: #945c00;
+}
+
+.digital-contact-box {
+  padding: 30px;
+  text-align: center;
+}
+
+.contact .digital-contact-box > i.bx {
+  float: none;
+  display: inline-flex;
+  margin: 0 0 10px;
+}
+
+.contact .digital-contact-box h3 {
+  margin: 8px 0;
+}
+
+.digital-contact-box p {
+  max-width: 720px;
+  margin: 0 auto 20px;
+  color: var(--text-soft) !important;
+  line-height: 1.7;
+}
+
+@media (max-width: 420px) {
+  .contact-card-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-action {
+    width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
 # Full-width case study cards (Production Systems)
 --------------------------------------------------------------*/
 .csf-card {
