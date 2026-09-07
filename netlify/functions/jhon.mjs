@@ -25,7 +25,7 @@ import { fileURLToPath } from "node:url";
 
 const MAX_TURNS = 12;
 const MAX_QUESTION_CHARS = 600;
-const MAX_OUTPUT_TOKENS = 600;
+const MAX_OUTPUT_TOKENS = 2048;
 
 const PROVIDERS = {
   openai: { key: "OPENAI_API_KEY", model: "gpt-4.1-mini", url: "https://api.openai.com/v1/chat/completions" },
