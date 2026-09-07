@@ -206,16 +206,31 @@
 
     let target = select(window.location.hash);
     if (target) {
+      // Anchors inside a section (e.g. #kora, #leaps) show their parent
+      // section, then scroll to the anchor once it is visible.
+      let inner = target.tagName.toLowerCase() === "section" ? null : target;
+      let sectionTarget = inner ? inner.closest("section") : target;
+      if (!sectionTarget) return;
+
+      navlinks.forEach((item) => {
+        item.classList.toggle("active", item.getAttribute("href") == "#" + sectionTarget.id);
+      });
+
       header.classList.add("header-top");
 
       setTimeout(function () {
         sections.forEach((item) => {
           item.classList.remove("section-show");
         });
-        target.classList.add("section-show");
+        sectionTarget.classList.add("section-show");
+        if (inner) {
+          setTimeout(function () {
+            inner.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 320);
+        }
       }, 350);
 
-      scrollto(window.location.hash);
+      if (!inner) scrollto(window.location.hash);
     }
   };
 
@@ -226,6 +241,22 @@
   });
 
   window.addEventListener("hashchange", showSectionFromHash);
+
+  on(
+    "click",
+    "a[href^='#']:not(.nav-link)",
+    function (e) {
+      let hash = this.getAttribute("href");
+      if (hash === "#" || !select(hash)) return;
+      e.preventDefault();
+      if (window.location.hash === hash) {
+        showSectionFromHash();
+      } else {
+        window.location.hash = hash;
+      }
+    },
+    true
+  );
 
   /**
    * Skills animation
@@ -383,3 +414,93 @@ function ajax(method, url, data, success, error) {
   };
   xhr.send(data);
 }
+
+/**
+ * KORA mascot — sprite state switcher + speech bubble
+ */
+(function () {
+  "use strict";
+  var stage = document.querySelector(".kora-stage");
+  if (!stage) return;
+
+  var sprite = stage.querySelector(".kora-sprite");
+  var bubble = stage.querySelector(".kora-bubble-text");
+  var buttons = Array.prototype.slice.call(stage.querySelectorAll(".kora-state-btn"));
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var typeTimer = null;
+
+  function typeText(text) {
+    if (!bubble) return;
+    if (typeTimer) clearInterval(typeTimer);
+    if (reduceMotion) { bubble.textContent = text; return; }
+    bubble.textContent = "";
+    var i = 0;
+    typeTimer = setInterval(function () {
+      i += 2;
+      bubble.textContent = text.slice(0, i);
+      if (i >= text.length) { clearInterval(typeTimer); typeTimer = null; }
+    }, 18);
+  }
+
+  function setState(btn) {
+    var state = btn.getAttribute("data-state");
+    buttons.forEach(function (b) {
+      b.classList.toggle("is-active", b === btn);
+      b.setAttribute("aria-pressed", String(b === btn));
+    });
+    sprite.setAttribute("data-state", state);
+    typeText(btn.getAttribute("data-line") || "");
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () { setState(btn); });
+  });
+
+  // Cycle through states automatically until the visitor picks one.
+  var idx = 0;
+  var auto = setInterval(function () {
+    idx = (idx + 1) % buttons.length;
+    setState(buttons[idx]);
+  }, 5200);
+  stage.addEventListener("click", function () { clearInterval(auto); }, { once: true });
+
+  if (buttons[0]) setState(buttons[0]);
+})();
+
+/**
+ * KORA flowchart tabs
+ */
+(function () {
+  "use strict";
+  var root = document.querySelector(".kora-flows");
+  if (!root) return;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll(".kora-flow-tab"));
+  var panels = Array.prototype.slice.call(root.querySelectorAll(".kora-flow-panel"));
+
+  function activate(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function (p) {
+      var on = p.id === tab.getAttribute("aria-controls");
+      p.classList.toggle("is-active", on);
+      p.hidden = !on;
+    });
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.tabIndex = tab.classList.contains("is-active") ? 0 : -1;
+    tab.addEventListener("click", function () { activate(tab); });
+    tab.addEventListener("keydown", function (e) {
+      var next = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : null;
+      if (next === null) return;
+      e.preventDefault();
+      var t = tabs[(next + tabs.length) % tabs.length];
+      t.focus();
+      activate(t);
+    });
+  });
+})();

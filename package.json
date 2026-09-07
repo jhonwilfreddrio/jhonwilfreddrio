@@ -1,0 +1,17 @@
+{
+  "name": "jhonwilfreddrio-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portfolio of Jhon Wilfred Drio, with the JHON visitor assistant (Netlify Function)",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 8765",
+    "check": "node -e \"new Function(require('fs').readFileSync('assets/js/main.js','utf8')); new Function(require('fs').readFileSync('assets/js/jhon.js','utf8')); console.log('ok')\""
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

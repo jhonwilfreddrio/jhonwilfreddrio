@@ -1,0 +1,97 @@
+{
+  "name": "Jhon Wilfred Drio",
+  "pronouns": "he/him",
+  "title": "System and Automation Engineer / Technical Manager",
+  "company": "K-Pick Trading Corp",
+  "companyDescription": "Korean medical supplies distributor in the Philippines, exclusive Philippine distributor for Sungshim and Insufine",
+  "location": "Navotas City, Metro Manila, Philippines",
+  "email": "jhonwilfreddrio@gmail.com",
+  "phone": "+639085918691",
+  "website": "https://jhonwilfreddrio.netlify.app",
+  "availability": "Open to full-time, freelance, and contract roles",
+  "since": "February 2026",
+  "tagline": "Systems that work. For people who do.",
+  "philosophy": "In every workplace there is a system that technically exists and a separate, informal process people actually use. I study that gap and redesign the system around real behavior, not org-chart assumptions. I use the right tool for the operation, not the most impressive-sounding one.",
+  "education": {
+    "degree": "Bachelor of Science in Information Technology",
+    "school": "City of Malabon University",
+    "years": "2021 - 2025"
+  },
+  "experience": [
+    {"role": "System and Automation Engineer / Technical Manager", "org": "K-Pick Trading Corp", "period": "February 2026 - present", "summary": "Owns the full lifecycle of the company's internal systems: workflow discovery, requirements, architecture, implementation, testing, controlled releases, recovery documentation, and staff support."},
+    {"role": "MFP Operator", "org": "Optimal Systems Distribution", "period": "September 2025 - January 2026", "summary": "Operated high-volume multifunction printing systems and production records."},
+    {"role": "Service Crew", "org": "Red Ribbon", "period": "May 2023 - July 2025", "summary": "Customer-facing operations; became the go-to person for technical troubleshooting."},
+    {"role": "Shop Assistant", "org": "Online shop", "period": "May 2022 - April 2023", "summary": "Managed online orders, warehouse operations, and shipments."},
+    {"role": "Technical Support", "org": "School", "period": "March 2020 - April 2022", "summary": "Facilitated online classes and e-documents during the pandemic."},
+    {"role": "Canteen Worker", "org": "School canteen", "period": "August 2018 - March 2020", "summary": "Daily operations in a busy school canteen."}
+  ],
+  "systems": [
+    {
+      "id": "erp",
+      "name": "K-Pick ERP-lite",
+      "status": "Production, running in parallel validation with the company's official records",
+      "stack": "Python, FastAPI, PostgreSQL, SQLAlchemy 2, Alembic, vanilla JavaScript, launchd on a Mac mini",
+      "metrics": "133 API routes, 30 schema migrations, 52 data models, 33 module views, 100 test files, 209 commits since June 2026",
+      "summary": "Inventory, operations, and finance platform: product master with unit conversion, append-only stock ledger with FEFO (first-expiry-first-out) allocation, Shopee / Lazada / TikTok Shop imports with mapping and duplicate prevention, order management with barcode checking, a phone-based packing scanner, multi-user count sessions, returns with condition and expiry, purchase planning, a multi-platform Finance Board, staff KPIs, customer statements, installation job orders, and configurable roles. Deployed with a guarded deploy script, pre-migration backups, health-check gates, and one-command rollback."
+    },
+    {
+      "id": "accounting",
+      "name": "Accounting and BIR Computerized Accounting System module",
+      "status": "Shipped 2026-09-06 as a parallel module inside ERP-lite",
+      "stack": "Same ERP-lite stack; PostgreSQL triggers and constraints",
+      "metrics": "6 BIR document types, 8 migrations in one release, independent numbering series per sales channel",
+      "summary": "Built for a Bureau of Internal Revenue Computerized Accounting System application: sales invoices with gapless per-series serial numbers, senior-citizen and PWD tax-exempt math, void-not-edit with reprint marking, a specimen print mode, the six-document set (sales invoice, collection receipt, credit and debit memo, purchase order, receiving report), chart of accounts, journal with a database-level balance constraint, general ledger, trial balance, sales journal, landed cost frozen per shipment and consumed FIFO, marketplace payout reconciliation, and an audit log that is append-only at the database level with a viewer supporting filters, print, and CSV export."
+    },
+    {
+      "id": "hris",
+      "name": "K-PICK HRIS",
+      "status": "In development, not yet deployed",
+      "stack": "FastAPI, SQLAlchemy 2, Alembic, React 18, TypeScript, Vite",
+      "metrics": "23 route modules, 188 API endpoints, 22 pure service modules, 28 React pages, 43 test files, 12 migrations",
+      "summary": "Standalone Philippine HR, timekeeping, and payroll system: 201 records, biometric attendance import, day-type and night-differential resolution, request-based overtime and rest-day authorization, failure-to-swipe corrections, statutory leave types, versioned SSS / PhilHealth / Pag-IBIG / withholding-tax tables, a pure payroll engine that rounds once to the centavo, A5 payslip PDFs, 13th-month and final-pay computation, recruitment, appraisals, disciplinary cases under the twin-notice rule, and an employee self-service portal. Role-based pay visibility keeps amounts away from HR while accounting sees the computed payslip."
+    },
+    {
+      "id": "kora",
+      "name": "KORA",
+      "status": "Production Telegram operations assistant",
+      "stack": "Python, python-telegram-bot, PostgreSQL, Ollama with a local Qwen 2.5 14B model, scheduled jobs in Philippine time",
+      "metrics": "10 Telegram commands, 8 scheduled jobs, about 5,600 lines across 8 modules, first commit 2026-07-01, hatched as a desktop mascot 2026-08-26",
+      "summary": "Reads the ERP database for a 7 PM daily operations report, assembles Jhon's daily associate report from git commits, an idempotent developer-report feed, and manual /mytask notes, monitors system health every 10 minutes while he is off-site, answers questions through an on-premise model with an application-level identity guard, and routes sensitive figures to private recipients only. Fails closed on malformed input and claims delivery only with evidence. Commands include /report, /today, /shipment, /status, /ask, /mytask, /dayoff, /away, /error, and /nespresso."
+    },
+    {
+      "id": "dispatch",
+      "name": "Shopee Dispatch Display System",
+      "status": "Production on the office LAN",
+      "stack": "Node.js, Express, Socket.IO, Web Audio API, JSON persistence",
+      "metrics": "5-stage order lifecycle, 5-stage picklist pipeline, 5 audio alert types",
+      "summary": "Real-time dispatch board with two synced browser views. Office staff dispatch rider codes and create picklists; the packing display shows large order cards with audio alerts and a flashing RUSH banner for nudged orders. State persists through restarts with atomic writes."
+    },
+    {
+      "id": "website",
+      "name": "kpicktradingcorp.com",
+      "status": "Live public B2B website on Hostinger",
+      "stack": "Static HTML, hand-written Node.js backend with SQLite, PDF generation, SMTP email",
+      "metrics": "21 pages, 9 Sungshim product pages, Schema.org data on 15 pages, 116 commits",
+      "summary": "Branded PDF quotations emailed to buyers, a quote-to-purchase-order workflow with role-based staff logins, published manufacturer certificates, a Learning Centre of interactive device infographics, brand films that load only in view, sellable stock and box prices synced from the ERP every 15 minutes, security hardening with timing-safe auth and rate limits, and llms.txt plus an AI-crawler policy for answer engines."
+    },
+    {
+      "id": "excel",
+      "name": "Excel VBA tools",
+      "status": "Earlier work",
+      "stack": "Excel VBA",
+      "metrics": "",
+      "summary": "An ordering system with form validation and an audit log, an attendance checker with automated calculations and summary reports, and a Sudoku built to explore the limits of VBA."
+    }
+  ],
+  "skills": {
+    "systems": ["Workflow discovery and requirements", "Python / FastAPI / REST APIs", "ERP, accounting and HRIS platform design", "Telegram bots and scheduled automation", "Local LLM integration (Ollama, MCP workers)", "Excel VBA / PowerShell / Bash"],
+    "data": ["PostgreSQL / SQLAlchemy 2 / Alembic", "Append-only ledgers, FEFO and audit trails", "BIR-style serialized documents and double-entry books", "Shopee / Lazada / TikTok Shop data integration", "Finance, KPI, payroll and PDF reporting", "Backup, restore, health checks and rollback"],
+    "web": ["JavaScript / HTML / CSS", "React 18 / TypeScript / Vite", "Node.js / Express / Socket.IO / SQLite", "Role-based access and session hardening", "SEO / AEO, structured data and llms.txt", "Git, GitHub Actions CI and guarded releases"]
+  },
+  "engineering": "Guarded delivery from Windows development to Mac production: a locked deploy script with pre-migration backups, upgrade-only migrations, health-check gates, one-command rollback, off-machine backup sync, a 10-job GitHub Actions CI pipeline, a self-generating code index so AI coding agents can navigate large files, and on-premise LLM workers used as advisers that never get deployment authority.",
+  "jhon": {
+    "expansion": "Jhon's Human-Oriented Navigator",
+    "alias": "Jhon's Human-Oriented Network",
+    "role": "A visitor-facing assistant that answers questions about Jhon Wilfred Drio, his systems, skills, and availability. It only knows what is published on this portfolio and never takes actions on anyone's behalf."
+  }
+}

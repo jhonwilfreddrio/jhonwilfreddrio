@@ -6,10 +6,10 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Jhon Wilfred Drio | System and Automation Engineer / Technical Manager</title>
-  <meta name="description" content="Jhon Wilfred Drio is a System and Automation Engineer / Technical Manager who turns inventory, fulfillment, finance, reporting, and e-commerce workflows into reliable business systems.">
+  <meta name="description" content="Jhon Wilfred Drio is a System and Automation Engineer / Technical Manager who builds ERP, accounting, HRIS, real-time dispatch, and Telegram automation (KORA) for a medical supplies distributor in the Philippines. Ask JHON, his on-page assistant.">
   <meta property="og:title" content="Jhon Wilfred Drio — System and Automation Engineer / Technical Manager"/>
   <meta property="og:image" content="assets/img/me2.jpeg"/>
-  <meta property="og:description" content="Business systems, ERP, workflow automation, integrations, and technical operations built around how teams actually work."/>
+  <meta property="og:description" content="ERP-lite, BIR-ready accounting, HRIS, KORA operations assistant, real-time dispatch, and a B2B website — business systems built around how teams actually work."/>
 
   <!-- Favicons -->
   <link href="assets/img/site-icon-white.png" rel="icon" type="image/png">
@@ -28,8 +28,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
 
   <!-- Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css?v=20260907" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="preload" as="image" href="assets/img/kora/kora-sprites.webp" type="image/webp">
 
 </head>
 
@@ -55,8 +56,8 @@
       </h2>
 
       <h2 class="hero-sub mt-3">
-        System and Automation Engineer / Technical Manager building ERP, workflow automation,
-        integrations, and internal tools around how operations actually work.
+        System and Automation Engineer / Technical Manager building ERP, accounting, HRIS,
+        real-time dispatch, and a Telegram operations assistant named KORA — around how operations actually work.
       </h2>
 
       <div class="hero-cta mt-4">
@@ -71,6 +72,7 @@
           <li><a class="nav-link" href="#resume">Career Log</a></li>
           <li><a class="nav-link" href="#services">What I Build</a></li>
           <li><a class="nav-link" href="#portfolio">Work</a></li>
+          <li><a class="nav-link" href="#jhon">JHON</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -111,7 +113,7 @@
         <div class="story-divider">→</div>
         <div class="story-step">
           <div class="story-label">What Happens</div>
-          <p>At K-Pick Trading, I turn inventory, fulfillment, finance, reporting, and e-commerce workflows into systems that teams can validate, trust, and improve safely.</p>
+          <p>At K-Pick Trading, I turned that into six running systems — an ERP, a BIR-ready accounting module, an HRIS, a real-time dispatch board, a B2B website, and KORA, the Telegram assistant that reports on all of them.</p>
         </div>
       </div>
     </div>
@@ -156,9 +158,9 @@
           <p>
             I'm a <strong>System and Automation Engineer / Technical Manager</strong> at K-Pick Trading Corp. I translate day-to-day operational problems into reliable systems, then carry them from workflow discovery and requirements through architecture, development, testing, controlled release, documentation, and user support.
             <br><br>
-            My main program of work is <strong>K-Pick ERP-lite</strong>, a Python, FastAPI, and PostgreSQL operations platform in controlled parallel validation alongside the company's existing records. Its scope spans inventory movements, marketplace imports, order management and barcode checking, returns and expiry, physical counts, purchase planning, finance views, role-based access, and operational reporting.
+            My main program of work is <strong>K-Pick ERP-lite</strong>, a Python, FastAPI, and PostgreSQL operations platform running in production in parallel with the company's official records: 133 API routes, 30 schema migrations, and 33 module views covering inventory, marketplace imports, order management and barcode checking, FEFO stock allocation, returns and expiry, physical counts, purchase planning, a multi-platform Finance Board, and role-based access. In September 2026 it grew an <strong>accounting module built for a BIR Computerized Accounting System application</strong>: serialized invoices, double-entry books, landed costing, and an audit trail that cannot be edited even at the database level.
             <br><br>
-            Alongside ERP-lite, I built a <strong>real-time dispatch system</strong> for office and packing coordination, developed <strong>KORA</strong> Telegram and local-AI automations for reports and operational support, and launched K-Pick's <strong>public B2B website and digital quotation workflow</strong>. I focus on correctness, traceability, recovery, and tools that fit the people doing the work.
+            Around it I built <strong>K-PICK HRIS</strong>, a standalone Philippine HR, timekeeping, and payroll system now in development; a <strong>real-time dispatch board</strong> for office and packing coordination; <strong>KORA</strong>, a Telegram operations assistant that reports, monitors, and answers questions through an on-premise AI model; and K-Pick's <strong>public B2B website</strong> with a quotation-to-purchase-order workflow that syncs stock and prices from the ERP every 15 minutes. I focus on correctness, traceability, recovery, and tools that fit the people doing the work.
           </p>
         </div>
 
@@ -182,9 +184,10 @@
           <ul class="toolbox-items">
             <li>Workflow discovery &amp; requirements</li>
             <li>Python / FastAPI / REST APIs</li>
-            <li>ERP &amp; internal platform design</li>
-            <li>Telegram &amp; scheduled automation</li>
-            <li>Excel VBA / PowerShell</li>
+            <li>ERP, accounting &amp; HRIS platform design</li>
+            <li>Telegram bots &amp; scheduled automation</li>
+            <li>Local LLM integration (Ollama, MCP workers)</li>
+            <li>Excel VBA / PowerShell / Bash</li>
           </ul>
         </div>
 
@@ -194,11 +197,12 @@
             <span>Data, Controls &amp; Reporting</span>
           </div>
           <ul class="toolbox-items">
-            <li>PostgreSQL / SQLAlchemy / Alembic</li>
-            <li>Inventory ledgers &amp; audit trails</li>
-            <li>Marketplace data integration</li>
-            <li>Finance, KPI &amp; document reporting</li>
-            <li>Backup, restore &amp; recovery design</li>
+            <li>PostgreSQL / SQLAlchemy 2 / Alembic</li>
+            <li>Append-only ledgers, FEFO &amp; audit trails</li>
+            <li>BIR-style serialized documents &amp; double-entry books</li>
+            <li>Shopee / Lazada / TikTok Shop data integration</li>
+            <li>Finance, KPI, payroll &amp; PDF document reporting</li>
+            <li>Backup, restore, health checks &amp; rollback</li>
           </ul>
         </div>
 
@@ -209,10 +213,11 @@
           </div>
           <ul class="toolbox-items">
             <li>JavaScript / HTML / CSS</li>
-            <li>Node.js / Express / Socket.IO</li>
-            <li>Role-based access control</li>
-            <li>Local AI integration (Ollama)</li>
-            <li>Git &amp; controlled release workflows</li>
+            <li>React 18 / TypeScript / Vite</li>
+            <li>Node.js / Express / Socket.IO / SQLite</li>
+            <li>Role-based access &amp; session hardening</li>
+            <li>SEO / AEO, structured data &amp; llms.txt</li>
+            <li>Git, GitHub Actions CI &amp; guarded releases</li>
           </ul>
         </div>
       </div>
@@ -312,13 +317,15 @@
             <p><em>K-Pick Trading Corporation — Korean medical supplies distributor, Philippines</em></p>
             <ul>
               <li>Lead the full lifecycle of internal systems: workflow discovery, requirements, architecture, implementation, testing, controlled releases, recovery documentation, staff support, and continuous improvement.</li>
-              <li>Built and continue to evolve <strong>K-Pick ERP-lite</strong>, a Python, FastAPI, and PostgreSQL platform in controlled parallel validation across inventory, fulfillment, purchasing, finance, and reporting workflows.</li>
-              <li>Designed audit-oriented controls including an append-only stock movement ledger, unit conversion, marketplace mapping, duplicate prevention, reversible returns, stock-condition and expiry tracking, and role-based permissions.</li>
-              <li>Integrated Shopee, Lazada, and TikTok Shop workflows for imports, order management, barcode checking, sales history, purchase planning, finance views, staff KPIs, and generated operational documents.</li>
-              <li>Built the <strong>Shopee Dispatch Display System</strong>, a Node.js, Express, and Socket.IO workflow that synchronizes office and packing teams with alerts, staged statuses, notes, and persistent operational state.</li>
-              <li>Developed <strong>KORA</strong> automation for Telegram reports, reminders, task updates, monitoring, private delivery, and bounded local-AI assistance while keeping system authority in verified application data.</li>
-              <li>Launched and improved <strong>kpicktradingcorp.com</strong>, including product and learning content, lead capture, email delivery, customer confirmations, quotation and PO generation, PDF output, SEO, and indexing.</li>
-              <li>Established safer delivery practices across Windows development and Mac production environments using database migrations, focused tests, backups, health checks, rollback safeguards, and documented recovery procedures.</li>
+              <li>Built and run <strong>K-Pick ERP-lite</strong> in production: a Python, FastAPI, and PostgreSQL platform with 133 API routes, 30 migrations, and 33 module views across inventory, fulfillment, purchasing, finance, and reporting, validated in parallel with the company's official records.</li>
+              <li>Designed audit-oriented controls: an append-only stock ledger, FEFO allocation with lineage, unit conversion, marketplace mapping, duplicate prevention, reversible returns, stock-condition and expiry tracking, and server-enforced roles with custom-role support.</li>
+              <li>Shipped an <strong>accounting module for a BIR Computerized Accounting System application</strong>: gapless serialized sales invoices, the six-document set, double-entry books with a database-level balance constraint, landed costing, marketplace receipt reconciliation, and a trigger-enforced append-only audit log.</li>
+              <li>Building <strong>K-PICK HRIS</strong>, a standalone Philippine HR, timekeeping, and payroll system (FastAPI, React, 188 endpoints) with biometric attendance import, request-based overtime authorization, statutory contribution tables, and role-scoped pay visibility.</li>
+              <li>Integrated Shopee, Lazada, and TikTok Shop workflows for imports, order management, barcode checking on phones, multi-user count sessions, sales history, purchase planning, a multi-platform Finance Board, staff KPIs, and generated documents.</li>
+              <li>Built the <strong>Shopee Dispatch Display System</strong>, a Node.js, Express, and Socket.IO workflow that synchronizes office and packing teams with audio alerts, staged statuses, notes, and persistent state.</li>
+              <li>Developed <strong>KORA</strong>, a Telegram operations assistant with 10 commands and 8 scheduled jobs: daily reports, an idempotent developer-report feed, off-site health monitoring, and bounded on-premise AI answers behind an identity guard, with system authority kept in verified application data.</li>
+              <li>Launched and hardened <strong>kpicktradingcorp.com</strong>: 21 pages, a quotation-to-purchase-order workflow with PDF output and email, a 15-minute stock and price sync from the ERP, structured data and AI-crawler policy for search and answer engines, rate limiting, and a full security-header set.</li>
+              <li>Established guarded delivery from Windows development to Mac production: locked deploy script with pre-migration backups, upgrade-only migrations, health-check gates, one-command rollback, off-machine backup sync, a 10-job CI pipeline, and a self-generating code index for AI-assisted development.</li>
             </ul>
           </div>
 
@@ -422,7 +429,7 @@
           <div class="icon-box">
             <div class="icon"><i class='bx bx-cog'></i></div>
             <h4>Process Automation</h4>
-            <p>I identify manual workflows that slow your team down and build automated systems using Excel VBA, Python, or Access. The goal isn't just automation — it's building something your team will actually use.</p>
+            <p>I identify manual workflows that slow your team down and build automation around them — Python services, Telegram assistants, scheduled jobs, Excel VBA. The goal isn't just automation; it's something your team will actually use.</p>
           </div>
         </div>
 
@@ -457,8 +464,8 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
           <div class="icon-box">
             <div class="icon"><i class="bx bx-bar-chart-alt-2"></i></div>
-            <h4>Data &amp; Reporting</h4>
-            <p>Operational dashboards, finance views, KPI reports, document generation, and data controls built from traceable business events.</p>
+            <h4>Accounting, Data &amp; Reporting</h4>
+            <p>Serialized documents, double-entry books, landed costing, finance dashboards, KPI and payroll reports, and PDF generation built from traceable business events.</p>
           </div>
         </div>
 
@@ -494,8 +501,209 @@
         </div>
       </div>
 
+      <!-- ── System leaps changelog ─────────────────────────── -->
+      <div class="leaps-wrap" id="leaps">
+        <div class="leaps-head">
+          <h3>// system_leaps.log</h3>
+          <p>What shipped across the K-Pick systems, July → September 2026 · 125 commits · 25 new migrations</p>
+        </div>
+        <ul class="leaps-grid">
+          <li><time>2026-09-07</time><span><strong>Returns intake</strong> — returned stock is sellable by default, with a production order-lookup fix and regression test. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-09-06</time><span><strong>BIR CAS accounting module</strong> — serialized sales invoices, the six-document set, double-entry books, landed costing, marketplace receipt parsing, and an append-only audit log enforced by a database trigger. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-09-06</time><span><strong>Session hardening</strong> — token revocation, forced password change, idle logout, login throttling, password rules. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-09-02</time><span><strong>K-PICK HRIS</strong> — standalone Philippine HR, timekeeping and payroll system: 23 route modules, 188 endpoints, React UI. <span class="leap-tag">dev</span></span></li>
+          <li><time>2026-09-02</time><span><strong>Engineering platform</strong> — self-generating workstation code index, 10-job GitHub Actions CI, and on-premise LLM worker orchestration for AI-assisted development. <span class="leap-tag">tooling</span></span></li>
+          <li><time>2026-09-01</time><span><strong>Movement log</strong> — FEFO splits across batches shown as one logical transaction while keeping every batch reference for audit. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-30</time><span><strong>Customer monthly reporting</strong> — printable per-customer statements for the direct-sales channel; cached Finance Board as the executive landing view. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-28</time><span><strong>Access &amp; reconciliation</strong> — per-role action permissions, faster Finance Board search, and a guarded cleanup tool with backup and row-count verification. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-28</time><span><strong>Website hardening + AEO</strong> — timing-safe auth, rate limits, full security-header set, Schema.org data on 15 pages, llms.txt and AI-crawler policy. <span class="leap-tag">web</span></span></li>
+          <li><time>2026-08-26</time><span><strong>Installation / vault job orders</strong> — persistent job tracking with its own API and UI; unified income math and a multi-product daily trend report. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-25</time><span><strong>Safeguards release</strong> — audited batch reclassification, catalog guards, and route-level authorization tests. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-23</time><span><strong>Reliability release</strong> — bounded, indexed, timeout-safe movement and returns lookups; safe custom-role controls. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-16</time><span><strong>Performance + KORA feed</strong> — compressed large API responses, in-app change log, and the idempotent developer-report API behind KORA's daily report. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-09</time><span><strong>Multi-platform Finance Board</strong> — per-platform fee rates, Boss Board visibility, returns condition and expiry capture, bulk import revision. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-08-05</time><span><strong>FEFO allocation + website sync</strong> — first-expiry-first-out stock-outs with lineage, and sellable stock plus box prices pushed to the public site every 15 minutes. <span class="leap-tag">live</span></span></li>
+          <li><time>2026-07-01</time><span><strong>KORA is born</strong> — daily report, ERP queries, and the first automation commands on Telegram. <a href="#kora">Meet KORA →</a> <span class="leap-tag">live</span></span></li>
+        </ul>
+      </div>
+
       <!-- ── Production Systems ─────────────────────────────── -->
       <div class="row portfolio-container">
+
+        <!-- K-Pick ERP-lite -->
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
+          <div class="csf-card csf-card--has-image">
+            <div class="csf-accent-bar"></div>
+            <div class="csf-preview-col">
+              <img src="assets/img/portfolio/erp-api.png" alt="K-Pick ERP-lite API documentation">
+            </div>
+            <div class="csf-content">
+              <div class="csf-header">
+                <div class="csf-icon-wrap"><i class="bi bi-server"></i></div>
+                <div>
+                  <span class="case-file-label">kpick_erp_lite/</span>
+                  <h3 class="csf-title">K-Pick ERP-lite — Inventory, Operations &amp; Finance Platform</h3>
+                  <span class="system-status">Production · parallel validation with the official records</span>
+                  <div class="csf-tags">
+                    <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>SQLAlchemy 2</span><span>Alembic</span><span>Vanilla JS</span><span>Role-based access</span><span>launchd on macOS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="csf-metrics">
+                <div class="csf-metric"><strong>133</strong><span>API routes</span></div>
+                <div class="csf-metric"><strong>30</strong><span>schema migrations</span></div>
+                <div class="csf-metric"><strong>52</strong><span>data models</span></div>
+                <div class="csf-metric"><strong>33</strong><span>module views</span></div>
+                <div class="csf-metric"><strong>100</strong><span>test files</span></div>
+                <div class="csf-metric"><strong>209</strong><span>commits since June 2026</span></div>
+              </div>
+              <div class="csf-body">
+                <div class="csf-col">
+                  <span class="case-key">Problem</span>
+                  <p>Inventory, marketplace orders, returns, purchasing, finance, and reporting lived in spreadsheets and manual follow-up. The business needed traceability, duplicate controls, consistent product mapping, and a safe path toward a real system without breaking the records people already trusted.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">What I Built</span>
+                  <p>A FastAPI and PostgreSQL platform with a product master and unit conversion, an append-only stock ledger with FEFO (first-expiry-first-out) allocation, Shopee / Lazada / TikTok Shop imports with mapping and duplicate prevention, an order-management and barcode-checking pipeline, a phone-based packing scanner and multi-user count sessions, returns with condition and expiry, purchase planning, a multi-platform Finance Board, staff KPIs, customer statements, and configurable roles — all migration-driven and covered by CI.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">Result</span>
+                  <p>Runs in production on a Mac mini with guarded deploys, pre-migration backups, health-check gates, and one-command rollback. The company's spreadsheets stay the official reference while ERP-lite validates every workflow in parallel, and the same platform now carries the accounting module below.</p>
+                </div>
+              </div>
+              <ul class="module-map" aria-label="ERP-lite modules">
+                <li>Product Master</li><li>Stock Ledger</li><li>FEFO Allocation</li><li>Platform Imports</li><li>Order Management</li><li>Mobile Checker</li><li>Count Sessions</li><li>Returns &amp; Expiry</li><li>Direct Sales</li><li>Purchase Planning</li><li>Finance Board</li><li>Staff KPIs</li><li>Installation Jobs</li><li>Customer Statements</li><li>Website Sync</li><li>Audit Log</li><li>Roles &amp; Sessions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accounting / BIR CAS -->
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
+          <div class="csf-card">
+            <div class="csf-accent-bar"></div>
+            <div class="csf-content">
+              <div class="csf-header">
+                <div class="csf-icon-wrap"><i class="bi bi-receipt-cutoff"></i></div>
+                <div>
+                  <span class="case-file-label">kpick_erp_lite/accounting</span>
+                  <h3 class="csf-title">Accounting &amp; BIR Computerized Accounting System Module</h3>
+                  <span class="system-status">Shipped 2026-09-06 · parallel module · CAS-application ready</span>
+                  <div class="csf-tags">
+                    <span>Double-entry ledger</span><span>Serialized invoices</span><span>Landed costing</span><span>Audit trail</span><span>PostgreSQL triggers</span>
+                  </div>
+                </div>
+              </div>
+              <div class="csf-metrics">
+                <div class="csf-metric"><strong>6</strong><span>BIR document types</span></div>
+                <div class="csf-metric"><strong>8</strong><span>migrations in one release</span></div>
+                <div class="csf-metric"><strong>4</strong><span>numbering series by channel</span></div>
+              </div>
+              <div class="csf-body">
+                <div class="csf-col">
+                  <span class="case-key">Problem</span>
+                  <p>Applying for a Bureau of Internal Revenue Computerized Accounting System permit requires gapless serialized documents, books of accounts, and an audit trail that cannot be edited — even by someone with database access.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">What I Built</span>
+                  <p>Sales Invoice with the required face, per-series gapless numbering, senior-citizen and PWD tax-exempt math, void-not-edit with reprint marking, and a specimen print mode. The full six-document set (invoice, collection receipt, credit and debit memo, purchase order, receiving report), a chart of accounts, journal with a database-level balance constraint, general ledger, trial balance, and sales journal. Landed cost frozen per shipment and consumed FIFO, with no silent fallback when a cost setting is missing.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">Result</span>
+                  <p>The audit log is append-only at the database level, an audit viewer supports filters, print, and CSV export, and marketplace payout files reconcile against the books. Built as a parallel module, so inventory, orders, and finance behaved exactly the same the day it shipped.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- K-PICK HRIS -->
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
+          <div class="csf-card">
+            <div class="csf-accent-bar"></div>
+            <div class="csf-content">
+              <div class="csf-header">
+                <div class="csf-icon-wrap"><i class="bi bi-people"></i></div>
+                <div>
+                  <span class="case-file-label">kpick_hris/</span>
+                  <h3 class="csf-title">K-PICK HRIS — HR, Timekeeping &amp; Payroll</h3>
+                  <span class="system-status">In development · not yet deployed</span>
+                  <div class="csf-tags">
+                    <span>FastAPI</span><span>SQLAlchemy 2</span><span>Alembic</span><span>React 18</span><span>TypeScript</span><span>Vite</span><span>Decimal math</span>
+                  </div>
+                </div>
+              </div>
+              <div class="csf-metrics">
+                <div class="csf-metric"><strong>23</strong><span>route modules</span></div>
+                <div class="csf-metric"><strong>188</strong><span>API endpoints</span></div>
+                <div class="csf-metric"><strong>22</strong><span>pure service modules</span></div>
+                <div class="csf-metric"><strong>28</strong><span>React pages</span></div>
+                <div class="csf-metric"><strong>43</strong><span>test files</span></div>
+              </div>
+              <div class="csf-body">
+                <div class="csf-col">
+                  <span class="case-key">Problem</span>
+                  <p>Attendance came from a biometric device export, overtime and holiday work were approved informally, and payroll math lived in spreadsheets that only one person understood. HR needed a system that follows Philippine labor rules without exposing pay figures to everyone who touches it.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">What I Built</span>
+                  <p>A standalone modular system: 201 records, biometric attendance import, day-type and night-differential resolution, request-based overtime and rest-day authorization, failure-to-swipe corrections, statutory leave types, versioned SSS / PhilHealth / Pag-IBIG / withholding-tax tables, a pure payroll engine that rounds once to the centavo, A5 payslip PDFs, 13th-month and final-pay computation, recruitment, appraisals, disciplinary cases under the twin-notice rule, and an employee self-service portal.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">Result</span>
+                  <p>Role-based pay visibility means HR can approve attendance and leave without ever seeing amounts, while accounting gets the computed payslip on the same rows. Every service module is DB-free and unit-tested, including a golden payslip regression. Statutory tables are flagged for accounting sign-off before the first live run.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KORA Operations Automation -->
+        <div class="col-12 col-lg-12 portfolio-item filter-systems">
+          <div class="csf-card csf-card--has-image">
+            <div class="csf-accent-bar"></div>
+            <div class="csf-preview-col csf-preview-col--kora">
+              <div class="kora-sprite-wrap kora-sprite-wrap--card">
+                <div class="kora-sprite" data-state="idle" role="img" aria-label="KORA mascot, animated"></div>
+                <div class="kora-sprite-shadow" aria-hidden="true"></div>
+              </div>
+              <span class="csf-placeholder-label">kora.pet · v2 atlas · hover to wave</span>
+            </div>
+            <div class="csf-content">
+              <div class="csf-header">
+                <div class="csf-icon-wrap"><i class="bi bi-telegram"></i></div>
+                <div>
+                  <span class="case-file-label">telegram_bot/ · KORA</span>
+                  <h3 class="csf-title">KORA — Telegram Operations Assistant</h3>
+                  <span class="system-status">Production · reports, monitoring &amp; local-AI Q&amp;A</span>
+                  <div class="csf-tags">
+                    <span>Python</span><span>python-telegram-bot</span><span>Ollama · Qwen 2.5</span><span>Scheduled jobs</span><span>Idempotent API</span>
+                  </div>
+                </div>
+              </div>
+              <div class="csf-metrics">
+                <div class="csf-metric"><strong>10</strong><span>commands</span></div>
+                <div class="csf-metric"><strong>8</strong><span>scheduled jobs</span></div>
+                <div class="csf-metric"><strong>3</strong><span>report sources merged</span></div>
+              </div>
+              <div class="csf-body">
+                <div class="csf-col">
+                  <span class="case-key">Problem</span>
+                  <p>Daily reports, work logs, reminders, and "is the system okay?" checks depended on me being online. Automation also needed a hard boundary between AI assistance and authoritative business data, and between what the group sees and what stays private.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">What I Built</span>
+                  <p>A Telegram assistant that reads the ERP database for a 7 PM operations report, assembles my daily associate report from git commits, an idempotent developer feed, and manual notes, monitors system health every 10 minutes while I'm off-site, answers questions through an on-premise model with an application-level identity guard, and routes sensitive figures to private recipients only.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">Result</span>
+                  <p>Coordination that used to be manual now arrives on schedule, fails closed on bad input, and claims delivery only with evidence. KORA also has a face: a hatched desktop mascot with a validated animated sprite atlas.</p>
+                </div>
+              </div>
+              <a class="csf-footer-link" href="#kora"><i class="bi bi-arrow-right-circle"></i> Meet KORA: profile, duties &amp; flowcharts</a>
+            </div>
+          </div>
+        </div>
 
         <!-- Shopee Dispatch Display System -->
         <div class="col-12 col-lg-12 portfolio-item filter-systems">
@@ -509,10 +717,10 @@
                 <div class="csf-icon-wrap"><i class="bi bi-broadcast-pin"></i></div>
                 <div>
                   <span class="case-file-label">shopee_dispatch/</span>
-                  <h4 class="csf-title">Shopee Dispatch Display System</h4>
-                  <span class="system-status">Operational system</span>
+                  <h3 class="csf-title">Shopee Dispatch Display System</h3>
+                  <span class="system-status">Production · office LAN</span>
                   <div class="csf-tags">
-                    <span>Node.js</span><span>Express</span><span>Socket.IO</span><span>Web Audio API</span><span>LAN deployment</span>
+                    <span>Node.js</span><span>Express</span><span>Socket.IO</span><span>Web Audio API</span><span>JSON persistence</span>
                   </div>
                 </div>
               </div>
@@ -523,86 +731,11 @@
                 </div>
                 <div class="csf-col">
                   <span class="case-key">What I Built</span>
-                  <p>A real-time Node.js + Socket.IO web app running on a Mac Mini, serving two browser interfaces across the office LAN. Office staff dispatch rider codes and create picklists. The packing display shows large-format order cards with audio alerts — chimes on new orders, beeps on nudges, visual flash and RUSH banner for urgent ones. Five-stage status tracking. JSON persistence through server restarts. No internet required.</p>
+                  <p>A real-time Node.js + Socket.IO app serving two synced browser views across the office LAN. Office staff dispatch rider codes and create picklists; the packing display shows large-format order cards with five distinct audio alerts, a flashing RUSH banner for nudged orders, a five-stage order lifecycle and a five-stage picklist pipeline with per-stage timestamps. State persists through restarts with atomic writes and corrupt-file quarantine. No internet required.</p>
                 </div>
                 <div class="csf-col">
                   <span class="case-key">Result</span>
-                  <p>Office and packing staff coordinate through one shared live workflow. Status changes, notes, and urgent alerts stay synchronized, while active work survives service restarts.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- K-Pick ERP-lite -->
-        <div class="col-12 col-lg-12 portfolio-item filter-systems">
-          <div class="csf-card csf-card--has-image">
-            <div class="csf-accent-bar"></div>
-            <div class="csf-preview-col">
-              <img src="assets/img/portfolio/erp-api.png" alt="K-Pick ERP-lite API documentation">
-            </div>
-            <div class="csf-content">
-              <div class="csf-header">
-                <div class="csf-icon-wrap"><i class="bi bi-server"></i></div>
-                <div>
-                  <span class="case-file-label">coffee_erp_db/</span>
-                  <h4 class="csf-title">K-Pick ERP-lite — Inventory &amp; Operations Platform</h4>
-                  <span class="system-status">Controlled parallel validation</span>
-                  <div class="csf-tags">
-                    <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Alembic</span><span>JavaScript</span><span>Role-based access</span>
-                  </div>
-                </div>
-              </div>
-              <div class="csf-body">
-                <div class="csf-col">
-                  <span class="case-key">Problem</span>
-                  <p>Inventory, marketplace orders, returns, purchasing, finance, and reporting were spread across manual and spreadsheet-driven workflows. The business needed stronger traceability, duplicate controls, consistent product mapping, and a safer path toward system migration.</p>
-                </div>
-                <div class="csf-col">
-                  <span class="case-key">What I Built</span>
-                  <p>A FastAPI and PostgreSQL platform with a product master and unit conversion, append-only stock ledger, Shopee/Lazada/TikTok Shop imports and mappings, duplicate prevention, an order-management and barcode-checking pipeline, returns and expiry controls, physical counts, direct sales, purchase planning, finance and executive views, staff KPIs, generated reports, and configurable role permissions.</p>
-                </div>
-                <div class="csf-col">
-                  <span class="case-key">Result</span>
-                  <p>ERP-lite remains in controlled parallel validation alongside the company's existing records, which remain the official reference until transition is declared. The platform provides traceable business events and is supported by migrations, focused tests, backups, health checks, and documented recovery procedures.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- KORA Operations Automation -->
-        <div class="col-12 col-lg-12 portfolio-item filter-systems">
-          <div class="csf-card csf-card--has-image">
-            <div class="csf-accent-bar"></div>
-            <div class="csf-preview-col csf-preview-placeholder">
-              <i class="bi bi-telegram csf-placeholder-icon"></i>
-              <span class="csf-placeholder-label">Operational automation</span>
-            </div>
-            <div class="csf-content">
-              <div class="csf-header">
-                <div class="csf-icon-wrap"><i class="bi bi-telegram"></i></div>
-                <div>
-                  <span class="case-file-label">KORA / operations_automation</span>
-                  <h4 class="csf-title">KORA Operations Automation</h4>
-                  <span class="system-status">Reports, reminders &amp; support</span>
-                  <div class="csf-tags">
-                    <span>Python</span><span>Telegram Bot API</span><span>Scheduled automation</span><span>API integration</span><span>Local AI / Ollama</span>
-                  </div>
-                </div>
-              </div>
-              <div class="csf-body">
-                <div class="csf-col">
-                  <span class="case-key">Problem</span>
-                  <p>Recurring operational reports, reminders, task updates, and support requests depended on manual follow-up. Automation also needed strict routing and a clear boundary between AI assistance and authoritative business data.</p>
-                </div>
-                <div class="csf-col">
-                  <span class="case-key">What I Built</span>
-                  <p>A Python and Telegram automation layer for scheduled reports, reminders, task updates, monitoring, private delivery, and operational support. Local AI is used only as a bounded adviser; verified application logic and data remain authoritative, and sensitive routes are kept out of public or group output.</p>
-                </div>
-                <div class="csf-col">
-                  <span class="case-key">Result</span>
-                  <p>KORA turns repeatable coordination work into concise, mobile-friendly flows while preserving access boundaries, traceability, and human control over operational decisions.</p>
+                  <p>Office and packing staff coordinate through one shared live workflow. Status changes, notes, and urgent alerts stay synchronized, and active work survives service restarts.</p>
                 </div>
               </div>
             </div>
@@ -660,7 +793,7 @@
               <span class="case-file-label">kpicktradingcorp.com</span>
               <h4>K-Pick Trading Corp Website</h4>
               <span class="system-status">Deployed public platform</span>
-              <p class="portfolio-sub">Built and improved the company's B2B web presence across brand and product pages, learning content, lead capture, email delivery, customer confirmations, and a digital quotation and purchase-order workflow with PDF output. The work also includes SEO, search indexing, deployment guidance, backups, and recovery documentation.</p>
+              <p class="portfolio-sub">21-page B2B site with a hand-written Node.js backend: branded PDF quotations emailed to buyers, a quote-to-purchase-order workflow with role-based staff logins, published manufacturer certificates, a Learning Centre of interactive device infographics, and brand films that only load in view. Sellable stock and box prices sync from the ERP every 15 minutes. Hardened with timing-safe auth, rate limits, and a full security-header set; Schema.org data on 15 pages plus llms.txt and an AI-crawler policy for answer engines.</p>
               <div class="portfolio-links">
                 <a href="https://kpicktradingcorp.com" target="_blank" rel="noopener" title="Visit Site"><i class="fas fa-external-link-alt"></i></a>
               </div>
@@ -683,9 +816,450 @@
 
       </div>
 
+      <!-- ── KORA profile block ─────────────────────────── -->
+      <div id="kora" class="kora kora-block">
+
+      <div class="section-title">
+        <h2>kora/pet.json</h2>
+        <p>Meet KORA</p>
+      </div>
+
+      <p class="kora-intro">
+        KORA is the operations assistant I built for K-Pick. She lives in Telegram, runs as a managed background
+        service next to the ERP, reports at 7 PM Philippine time, watches the systems when I'm off-site, and answers
+        questions with a local AI model that never gets the final word — verified application data does.
+      </p>
+
+      <div class="kora-hero">
+        <!-- Sprite stage -->
+        <div class="kora-stage" aria-label="KORA mascot">
+          <span class="kora-stage-label">// kora.sprite</span>
+          <span class="kora-stage-status">online</span>
+
+          <div class="kora-bubble" aria-live="polite">
+            <span class="kora-bubble-text"></span><span class="kora-caret" aria-hidden="true"></span>
+          </div>
+
+          <div class="kora-sprite-wrap">
+            <div class="kora-sprite" data-state="idle" role="img" aria-label="KORA, a glossy 3D mascot in a blue helmet with a K"></div>
+            <div class="kora-sprite-shadow" aria-hidden="true"></div>
+          </div>
+
+          <div class="kora-states" role="group" aria-label="KORA states">
+            <button class="kora-state-btn is-active" type="button" data-state="idle" aria-pressed="true" data-line="Standing by. ERP healthy. Next report at 19:00 PHT.">idle</button>
+            <button class="kora-state-btn" type="button" data-state="running" aria-pressed="false" data-line="Assembling tonight's associate report: commits + dev feed + /mytask notes.">working</button>
+            <button class="kora-state-btn" type="button" data-state="review" aria-pressed="false" data-line="Reviewing a release: exact SHA, backup, migrations, health — before I say GREEN.">review</button>
+            <button class="kora-state-btn" type="button" data-state="waiting" aria-pressed="false" data-line="Owner-only command. Waiting for Jhon before anything private goes out.">waiting</button>
+            <button class="kora-state-btn" type="button" data-state="jumping" aria-pressed="false" data-line="Report delivered — group_report=sent. Marker saved.">delivered</button>
+            <button class="kora-state-btn" type="button" data-state="failed" aria-pressed="false" data-line="Malformed feed for today. Failing closed: nothing sent, owner notified.">fail-closed</button>
+            <button class="kora-state-btn" type="button" data-state="waving" aria-pressed="false" data-line="Hi! I'm KORA. Try /status or /ask me about today's operations.">hello</button>
+          </div>
+        </div>
+
+        <!-- Profile card -->
+        <div class="kora-profile">
+          <div class="kora-profile-head">
+            <div>
+              <span class="case-file-label">displayName</span>
+              <h3 class="kora-profile-name">KORA</h3>
+              <p class="kora-profile-role">Telegram-native operations assistant for K-Pick Trading Corp</p>
+            </div>
+            <div class="kora-profile-badges">
+              <span>Python</span><span>python-telegram-bot</span><span>Ollama · Qwen 2.5 14B</span><span>PostgreSQL</span><span>PHT-scheduled</span>
+            </div>
+          </div>
+
+          <p class="kora-profile-desc">
+            A cheerful glossy 3D mascot who helps with focused work and automation. On the desktop she is a hatched
+            Codex pet with a 16-direction look loop; in production she is a Python service that reads the ERP,
+            writes to Telegram, and keeps sensitive figures on private routes.
+          </p>
+
+<pre class="kora-json" aria-label="KORA profile as JSON">{
+  <span class="k">"id"</span>: <span class="s">"kora"</span>,
+  <span class="k">"displayName"</span>: <span class="s">"KORA"</span>,
+  <span class="k">"role"</span>: <span class="s">"operations assistant · reports · monitoring · Q&amp;A"</span>,
+  <span class="k">"firstCommit"</span>: <span class="s">"2026-07-01"</span>,
+  <span class="k">"hatched"</span>: <span class="s">"2026-08-26"</span>,
+  <span class="k">"atlas"</span>: <span class="s">"8 x 11 sprite sheet · 9 animations + 16 look directions"</span>,
+  <span class="k">"spriteVersionNumber"</span>: <span class="n">2</span>,
+  <span class="k">"authority"</span>: <span class="s">"verified application data, never the model"</span>
+}</pre>
+
+          <div class="kora-facts">
+            <div class="kora-fact"><strong>10</strong><span>Telegram commands</span></div>
+            <div class="kora-fact"><strong>8</strong><span>scheduled jobs (PHT)</span></div>
+            <div class="kora-fact"><strong>5.6k</strong><span>lines across 8 modules</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duties -->
+      <div class="kora-subhead">
+        <h3>// responsibilities</h3>
+        <p>What KORA handles on my Telegram, every day</p>
+      </div>
+
+      <div class="kora-duties">
+        <div class="kora-duty">
+          <div class="kora-duty-head">
+            <i class="bi bi-clipboard-data"></i>
+            <div>
+              <h4>Daily operations report</h4>
+              <span class="kora-duty-time">19:00 PHT · scheduled + on demand</span>
+            </div>
+          </div>
+          <p>Reads today's figures straight from the ERP database, builds the report, and routes it: operations to the group, sales figures only to configured private recipients.</p>
+          <ul class="kora-cmds"><li>/report</li><li>/today</li><li>/shipment</li></ul>
+        </div>
+
+        <div class="kora-duty">
+          <div class="kora-duty-head">
+            <i class="bi bi-journal-check"></i>
+            <div>
+              <h4>Associate report</h4>
+              <span class="kora-duty-time">18:30 cutoff reminder · 19:00 send</span>
+            </div>
+          </div>
+          <p>My daily work report, written for me: merges git commits landed since the last report, an automated developer feed, and my manual notes, grouped by module and deduplicated.</p>
+          <ul class="kora-cmds"><li>/mytask</li><li>/mytask dev</li><li>/mytask pending</li><li>/mytask preview</li></ul>
+        </div>
+
+        <div class="kora-duty">
+          <div class="kora-duty-head">
+            <i class="bi bi-shield-check"></i>
+            <div>
+              <h4>Off-site &amp; day-off monitoring</h4>
+              <span class="kora-duty-time">every 10 min · digests 08:00 &amp; 20:00</span>
+            </div>
+          </div>
+          <p>When I'm away, KORA polls database, API, model, and bot health and only speaks up privately with fixed status phrases. Raw errors, URLs, and data never enter a chat.</p>
+          <ul class="kora-cmds"><li>/dayoff</li><li>/away on</li><li>/away status</li><li>/away off</li></ul>
+        </div>
+
+        <div class="kora-duty">
+          <div class="kora-duty-head">
+            <i class="bi bi-speedometer2"></i>
+            <div>
+              <h4>Live status &amp; incident snapshot</h4>
+              <span class="kora-duty-time">on demand</span>
+            </div>
+          </div>
+          <p>One message with three live checks: today's direct-sales count from PostgreSQL, local model availability, and ERP API reachability. A sanitized snapshot can be pushed to the group by the owner.</p>
+          <ul class="kora-cmds"><li>/status</li><li>/error</li></ul>
+        </div>
+
+        <div class="kora-duty">
+          <div class="kora-duty-head">
+            <i class="bi bi-chat-square-dots"></i>
+            <div>
+              <h4>Ask KORA</h4>
+              <span class="kora-duty-time">local AI · bounded timeouts</span>
+            </div>
+          </div>
+          <p>Free-form operational questions get a live ERP snapshot plus a local Ollama model. Identity questions never reach the model, and every answer passes an identity guard before delivery.</p>
+          <ul class="kora-cmds"><li>/ask</li><li>@KORA mention</li><li>browser chat</li></ul>
+        </div>
+
+        <div class="kora-duty">
+          <div class="kora-duty-head">
+            <i class="bi bi-binoculars"></i>
+            <div>
+              <h4>Competitor price watch</h4>
+              <span class="kora-duty-time">08:00 PHT daily</span>
+            </div>
+          </div>
+          <p>A daily price monitor for a benchmark consumer product line, with an optional browser-capture bridge for sources that block plain requests. Results go to private recipients.</p>
+          <ul class="kora-cmds"><li>/nespresso</li></ul>
+        </div>
+      </div>
+
+      <!-- Flowcharts -->
+      <div class="kora-subhead">
+        <h3>// how she handles each task</h3>
+        <p>Flowcharts traced from the bot's code and delivery gates</p>
+      </div>
+
+      <div class="kora-flows">
+<div class="kora-flow-tabs" role="tablist" aria-label="KORA automation flowcharts">
+<button class="kora-flow-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="kora-flow-runtime" id="kora-flow-tab-runtime">Runtime</button>
+<button class="kora-flow-tab" type="button" role="tab" aria-selected="false" aria-controls="kora-flow-daily" id="kora-flow-tab-daily">Daily report</button>
+<button class="kora-flow-tab" type="button" role="tab" aria-selected="false" aria-controls="kora-flow-devfeed" id="kora-flow-tab-devfeed">Dev feed</button>
+<button class="kora-flow-tab" type="button" role="tab" aria-selected="false" aria-controls="kora-flow-associate" id="kora-flow-tab-associate">Associate report</button>
+<button class="kora-flow-tab" type="button" role="tab" aria-selected="false" aria-controls="kora-flow-monitor" id="kora-flow-tab-monitor">Monitoring</button>
+<button class="kora-flow-tab" type="button" role="tab" aria-selected="false" aria-controls="kora-flow-ask" id="kora-flow-tab-ask">Ask KORA</button>
+</div>
+<div class="kora-flow-panel is-active" id="kora-flow-runtime" role="tabpanel" tabindex="0" aria-labelledby="kora-flow-tab-runtime"><p class="kora-flow-caption">KORA runtime and automation entry points</p>
+<svg class="fc-svg" viewBox="0 0 944 730" role="img" aria-labelledby="kora-flow-runtime-title" xmlns="http://www.w3.org/2000/svg">
+<title id="kora-flow-runtime-title">KORA runtime and automation entry points</title>
+<defs><marker id="fc-arrow-runtime" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fc-arrowhead"/></marker></defs>
+<path class="fc-edge" d="M360.0,93.0 L360.0,140.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M360.0,198.0 L360.0,238.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M360.0,296.0 L360.0,336.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M360.0,394.0 L360.0,434.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M360.0,492.0 L360.0,519.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M262.0,561.0 L136.0,561.0 L136.0,630.0" marker-end="url(#fc-arrow-runtime)"/><rect class="fc-edge-label-bg" x="164.3" y="544.0" width="69.4" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="553.0" text-anchor="middle" dominant-baseline="middle">on demand</text>
+<path class="fc-edge" d="M360.0,603.0 L360.0,630.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M458.0,561.0 L584.0,561.0 L584.0,630.0" marker-end="url(#fc-arrow-runtime)"/>
+<path class="fc-edge" d="M458.0,561.0 L808.0,561.0 L808.0,630.0" marker-end="url(#fc-arrow-runtime)"/><rect class="fc-edge-label-bg" x="588.4" y="544.0" width="89.19999999999999" height="18" rx="5"/><text class="fc-edge-label" x="633.0" y="553.0" text-anchor="middle" dominant-baseline="middle">when enabled</text>
+<rect class="fc-node fc-pill" x="285.0" y="49.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="71.0" text-anchor="middle" dominant-baseline="middle">Production host boots</text>
+<rect class="fc-node fc-rect" x="272.0" y="140.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="163.1875" text-anchor="middle" dominant-baseline="middle">launchd starts KORA</text><text class="fc-sub" x="360.0" y="178.8125" text-anchor="middle" dominant-baseline="middle">run at load · keep alive</text>
+<rect class="fc-node fc-rect" x="272.0" y="238.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="261.1875" text-anchor="middle" dominant-baseline="middle">Wait for ERP backend</text><text class="fc-sub" x="360.0" y="276.8125" text-anchor="middle" dominant-baseline="middle">10-second grace</text>
+<path class="fc-node fc-data" d="M272.0,343.0 a88.0,7 0 0 0 176,0 v44 a88.0,7 0 0 1 -176,0 z"/><path class="fc-node-line" d="M272.0,343.0 a88.0,7 0 0 0 176,0"/><text class="fc-label" x="360.0" y="359.1875" text-anchor="middle" dominant-baseline="middle">Load configuration</text><text class="fc-sub" x="360.0" y="374.8125" text-anchor="middle" dominant-baseline="middle">routes · schedules · flags</text>
+<rect class="fc-node fc-rect" x="272.0" y="434.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="455.1875" text-anchor="middle" dominant-baseline="middle">Register handlers</text><text class="fc-label" x="360.0" y="470.8125" text-anchor="middle" dominant-baseline="middle">and scheduled jobs</text>
+<polygon class="fc-node fc-decision" points="360.0,519.0 458.0,561.0 360.0,603.0 262.0,561.0"/><text class="fc-label" x="360.0" y="553.1875" text-anchor="middle" dominant-baseline="middle">Parallel</text><text class="fc-label" x="360.0" y="568.8125" text-anchor="middle" dominant-baseline="middle">automation fork</text>
+<polygon class="fc-node fc-io" points="62.0,630.0 224.0,630.0 210.0,688.0 48.0,688.0"/><text class="fc-label" x="136.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Telegram commands</text><text class="fc-sub" x="136.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">/report /status /ask …</text>
+<rect class="fc-node fc-rect" x="272.0" y="630.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Daily operations job</text><text class="fc-sub" x="360.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">19:00 PHT</text>
+<rect class="fc-node fc-rect" x="496.0" y="630.0" width="176" height="58" rx="10"/><text class="fc-label" x="584.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Associate report job</text><text class="fc-sub" x="584.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">19:00 PHT · 18:30 reminder</text>
+<rect class="fc-node fc-rect" x="720.0" y="630.0" width="176" height="58" rx="10"/><text class="fc-label" x="808.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Optional monitors</text><text class="fc-sub" x="808.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">day-off · away · prices</text>
+</svg>
+</div>
+<div class="kora-flow-panel" id="kora-flow-daily" role="tabpanel" tabindex="0" aria-labelledby="kora-flow-tab-daily" hidden><p class="kora-flow-caption">Daily operations report and privacy routing</p>
+<svg class="fc-svg" viewBox="0 0 720 828" role="img" aria-labelledby="kora-flow-daily-title" xmlns="http://www.w3.org/2000/svg">
+<title id="kora-flow-daily-title">Daily operations report and privacy routing</title>
+<defs><marker id="fc-arrow-daily" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fc-arrowhead"/></marker></defs>
+<path class="fc-edge" d="M360.0,93.0 L360.0,140.0" marker-end="url(#fc-arrow-daily)"/>
+<path class="fc-edge" d="M360.0,198.0 L360.0,238.0" marker-end="url(#fc-arrow-daily)"/>
+<path class="fc-edge" d="M360.0,296.0 L360.0,336.0" marker-end="url(#fc-arrow-daily)"/>
+<path class="fc-edge" d="M360.0,394.0 L360.0,421.0" marker-end="url(#fc-arrow-daily)"/>
+<path class="fc-edge" d="M262.0,463.0 L136.0,463.0 L136.0,532.0" marker-end="url(#fc-arrow-daily)"/><rect class="fc-edge-label-bg" x="161.0" y="446.0" width="76.0" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="455.0" text-anchor="middle" dominant-baseline="middle">operations</text>
+<path class="fc-edge" d="M458.0,463.0 L584.0,463.0 L584.0,532.0" marker-end="url(#fc-arrow-daily)"/><rect class="fc-edge-label-bg" x="499.5" y="446.0" width="43.0" height="18" rx="5"/><text class="fc-edge-label" x="521.0" y="455.0" text-anchor="middle" dominant-baseline="middle">sales</text>
+<path class="fc-edge" d="M136.0,590.0 L136.0,610.0 L360.0,610.0 L360.0,630.0" marker-end="url(#fc-arrow-daily)"/>
+<path class="fc-edge" d="M584.0,590.0 L584.0,610.0 L360.0,610.0 L360.0,630.0" marker-end="url(#fc-arrow-daily)"/>
+<path class="fc-edge" d="M360.0,688.0 L360.0,735.0" marker-end="url(#fc-arrow-daily)"/>
+<rect class="fc-node fc-pill" x="285.0" y="49.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="71.0" text-anchor="middle" dominant-baseline="middle">Scheduled 19:00 PHT</text>
+<path class="fc-node fc-data" d="M272.0,147.0 a88.0,7 0 0 0 176,0 v44 a88.0,7 0 0 1 -176,0 z"/><path class="fc-node-line" d="M272.0,147.0 a88.0,7 0 0 0 176,0"/><text class="fc-label" x="360.0" y="163.1875" text-anchor="middle" dominant-baseline="middle">ERP + database snapshot</text><text class="fc-sub" x="360.0" y="178.8125" text-anchor="middle" dominant-baseline="middle">live operational data</text>
+<polygon class="fc-node fc-io" points="286.0,238.0 448.0,238.0 434.0,296.0 272.0,296.0"/><text class="fc-label" x="360.0" y="261.1875" text-anchor="middle" dominant-baseline="middle">Read today&#x27;s figures</text><text class="fc-sub" x="360.0" y="276.8125" text-anchor="middle" dominant-baseline="middle">shipments · returns · sales</text>
+<path class="fc-node fc-doc" d="M272.0,336.0 h176 v48 q-44.0,-14 -88.0,0 q-44.0,14 -88.0,0 z"/><text class="fc-label" x="360.0" y="365.0" text-anchor="middle" dominant-baseline="middle">Build daily report</text>
+<polygon class="fc-node fc-decision" points="360.0,421.0 458.0,463.0 360.0,505.0 262.0,463.0"/><text class="fc-label" x="360.0" y="457.1875" text-anchor="middle" dominant-baseline="middle">Report content?</text><text class="fc-sub" x="360.0" y="472.8125" text-anchor="middle" dominant-baseline="middle">privacy routing</text>
+<polygon class="fc-node fc-io" points="62.0,532.0 224.0,532.0 210.0,590.0 48.0,590.0"/><text class="fc-label" x="136.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Send to Telegram group</text><text class="fc-sub" x="136.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">operations only</text>
+<polygon class="fc-node fc-io" points="510.0,532.0 672.0,532.0 658.0,590.0 496.0,590.0"/><text class="fc-label" x="584.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Send privately</text><text class="fc-sub" x="584.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">configured recipients</text>
+<rect class="fc-node fc-rect" x="272.0" y="630.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="659.0" text-anchor="middle" dominant-baseline="middle">Mirror to owner</text>
+<rect class="fc-node fc-pill" x="285.0" y="735.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="757.0" text-anchor="middle" dominant-baseline="middle">Delivery complete</text>
+</svg>
+</div>
+<div class="kora-flow-panel" id="kora-flow-devfeed" role="tabpanel" tabindex="0" aria-labelledby="kora-flow-tab-devfeed" hidden><p class="kora-flow-caption">Automated developer-report capture</p>
+<svg class="fc-svg" viewBox="0 0 720 828" role="img" aria-labelledby="kora-flow-devfeed-title" xmlns="http://www.w3.org/2000/svg">
+<title id="kora-flow-devfeed-title">Automated developer-report capture</title>
+<defs><marker id="fc-arrow-devfeed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fc-arrowhead"/></marker></defs>
+<path class="fc-edge" d="M360.0,93.0 L360.0,140.0" marker-end="url(#fc-arrow-devfeed)"/>
+<path class="fc-edge" d="M360.0,198.0 L360.0,238.0" marker-end="url(#fc-arrow-devfeed)"/>
+<path class="fc-edge" d="M360.0,296.0 L360.0,323.0" marker-end="url(#fc-arrow-devfeed)"/>
+<path class="fc-edge" d="M262.0,365.0 L136.0,365.0 L136.0,434.0" marker-end="url(#fc-arrow-devfeed)"/><rect class="fc-edge-label-bg" x="187.4" y="348.0" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="357.0" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M360.0,407.0 L360.0,421.0" marker-end="url(#fc-arrow-devfeed)"/><rect class="fc-edge-label-bg" x="368.0" y="405.0" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="382.9" y="414.0" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M360.0,505.0 L360.0,532.0" marker-end="url(#fc-arrow-devfeed)"/><rect class="fc-edge-label-bg" x="368.0" y="509.5" width="62.8" height="18" rx="5"/><text class="fc-edge-label" x="399.4" y="518.5" text-anchor="middle" dominant-baseline="middle">no · new</text>
+<path class="fc-edge" d="M458.0,463.0 L584.0,463.0 L584.0,519.0" marker-end="url(#fc-arrow-devfeed)"/><rect class="fc-edge-label-bg" x="506.1" y="446.0" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="521.0" y="455.0" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M584.0,603.0 L584.0,630.0" marker-end="url(#fc-arrow-devfeed)"/><rect class="fc-edge-label-bg" x="592.0" y="607.5" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="606.9" y="616.5" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M486.0,561.0 L136.0,561.0 L136.0,630.0" marker-end="url(#fc-arrow-devfeed)"/><rect class="fc-edge-label-bg" x="299.4" y="544.0" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="311.0" y="553.0" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M360.0,590.0 L360.0,728.0" marker-end="url(#fc-arrow-devfeed)"/>
+<path class="fc-edge" d="M584.0,688.0 L584.0,708.0 L360.0,708.0 L360.0,728.0" marker-end="url(#fc-arrow-devfeed)"/>
+<rect class="fc-node fc-pill" x="285.0" y="49.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="71.0" text-anchor="middle" dominant-baseline="middle">Development work verified</text>
+<rect class="fc-node fc-rect" x="272.0" y="140.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="163.1875" text-anchor="middle" dominant-baseline="middle">Sanitize manager item</text><text class="fc-sub" x="360.0" y="178.8125" text-anchor="middle" dominant-baseline="middle">module · summary · status · workId</text>
+<polygon class="fc-node fc-io" points="286.0,238.0 448.0,238.0 434.0,296.0 272.0,296.0"/><text class="fc-label" x="360.0" y="261.1875" text-anchor="middle" dominant-baseline="middle">POST to secure ERP API</text><text class="fc-sub" x="360.0" y="276.8125" text-anchor="middle" dominant-baseline="middle">authenticated machine input</text>
+<polygon class="fc-node fc-decision" points="360.0,323.0 458.0,365.0 360.0,407.0 262.0,365.0"/><text class="fc-label" x="360.0" y="359.1875" text-anchor="middle" dominant-baseline="middle">Payload valid?</text><text class="fc-sub" x="360.0" y="374.8125" text-anchor="middle" dominant-baseline="middle">scrubs secrets and paths</text>
+<rect class="fc-node fc-rect" x="48.0" y="434.0" width="176" height="58" rx="10"/><text class="fc-label" x="136.0" y="463.0" text-anchor="middle" dominant-baseline="middle">Reject request</text>
+<polygon class="fc-node fc-decision" points="360.0,421.0 458.0,463.0 360.0,505.0 262.0,463.0"/><text class="fc-label" x="360.0" y="457.1875" text-anchor="middle" dominant-baseline="middle">Work ID exists?</text><text class="fc-sub" x="360.0" y="472.8125" text-anchor="middle" dominant-baseline="middle">idempotency check</text>
+<path class="fc-node fc-data" d="M272.0,539.0 a88.0,7 0 0 0 176,0 v44 a88.0,7 0 0 1 -176,0 z"/><path class="fc-node-line" d="M272.0,539.0 a88.0,7 0 0 0 176,0"/><text class="fc-label" x="360.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Store report item</text><text class="fc-sub" x="360.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">persistent audit row</text>
+<polygon class="fc-node fc-decision" points="584.0,519.0 682.0,561.0 584.0,603.0 486.0,561.0"/><text class="fc-label" x="584.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Same content?</text><text class="fc-sub" x="584.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">conflict check</text>
+<rect class="fc-node fc-rect" x="496.0" y="630.0" width="176" height="58" rx="10"/><text class="fc-label" x="584.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Already recorded</text><text class="fc-sub" x="584.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">no duplicate row</text>
+<rect class="fc-node fc-rect" x="48.0" y="630.0" width="176" height="58" rx="10"/><text class="fc-label" x="136.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Reject conflict</text><text class="fc-sub" x="136.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">HTTP 409</text>
+<polygon class="fc-node fc-io" points="286.0,728.0 448.0,728.0 434.0,786.0 272.0,786.0"/><text class="fc-label" x="360.0" y="751.1875" text-anchor="middle" dominant-baseline="middle">Today&#x27;s automated feed</text><text class="fc-sub" x="360.0" y="766.8125" text-anchor="middle" dominant-baseline="middle">available to associate report</text>
+</svg>
+</div>
+<div class="kora-flow-panel" id="kora-flow-associate" role="tabpanel" tabindex="0" aria-labelledby="kora-flow-tab-associate" hidden><p class="kora-flow-caption">Associate report assembly and delivery gate</p>
+<svg class="fc-svg" viewBox="0 0 720 1024" role="img" aria-labelledby="kora-flow-associate-title" xmlns="http://www.w3.org/2000/svg">
+<title id="kora-flow-associate-title">Associate report assembly and delivery gate</title>
+<defs><marker id="fc-arrow-associate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fc-arrowhead"/></marker></defs>
+<path class="fc-edge" d="M136.0,100.0 L136.0,113.5 L360.0,113.5 L360.0,127.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M360.0,100.0 L360.0,127.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M584.0,100.0 L584.0,113.5 L360.0,113.5 L360.0,127.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M262.0,169.0 L136.0,169.0 L136.0,238.0" marker-end="url(#fc-arrow-associate)"/><rect class="fc-edge-label-bg" x="187.4" y="152.0" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="161.0" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M360.0,211.0 L360.0,238.0" marker-end="url(#fc-arrow-associate)"/><rect class="fc-edge-label-bg" x="368.0" y="215.5" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="382.9" y="224.5" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M360.0,296.0 L360.0,336.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M360.0,394.0 L360.0,434.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M360.0,492.0 L360.0,532.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M360.0,590.0 L360.0,617.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M262.0,659.0 L136.0,659.0 L136.0,728.0" marker-end="url(#fc-arrow-associate)"/><rect class="fc-edge-label-bg" x="187.4" y="642.0" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="651.0" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M360.0,701.0 L360.0,728.0" marker-end="url(#fc-arrow-associate)"/><rect class="fc-edge-label-bg" x="368.0" y="705.5" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="382.9" y="714.5" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M360.0,786.0 L360.0,826.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-edge" d="M360.0,884.0 L360.0,931.0" marker-end="url(#fc-arrow-associate)"/>
+<path class="fc-node fc-data" d="M48.0,49.0 a88.0,7 0 0 0 176,0 v44 a88.0,7 0 0 1 -176,0 z"/><path class="fc-node-line" d="M48.0,49.0 a88.0,7 0 0 0 176,0"/><text class="fc-label" x="136.0" y="65.1875" text-anchor="middle" dominant-baseline="middle">Git commits</text><text class="fc-sub" x="136.0" y="80.8125" text-anchor="middle" dominant-baseline="middle">since delivered marker</text>
+<polygon class="fc-node fc-io" points="286.0,42.0 448.0,42.0 434.0,100.0 272.0,100.0"/><text class="fc-label" x="360.0" y="65.1875" text-anchor="middle" dominant-baseline="middle">Developer-report feed</text><text class="fc-sub" x="360.0" y="80.8125" text-anchor="middle" dominant-baseline="middle">date-specific API output</text>
+<path class="fc-node fc-manual" d="M496.0,56.0 L672.0,42.0 V100.0 H496.0 z"/><text class="fc-label" x="584.0" y="65.1875" text-anchor="middle" dominant-baseline="middle">/mytask entries</text><text class="fc-sub" x="584.0" y="80.8125" text-anchor="middle" dominant-baseline="middle">manual input</text>
+<polygon class="fc-node fc-decision" points="360.0,127.0 458.0,169.0 360.0,211.0 262.0,169.0"/><text class="fc-label" x="360.0" y="163.1875" text-anchor="middle" dominant-baseline="middle">Feed valid for today?</text><text class="fc-sub" x="360.0" y="178.8125" text-anchor="middle" dominant-baseline="middle">fail-closed decision</text>
+<rect class="fc-node fc-rect" x="48.0" y="238.0" width="176" height="58" rx="10"/><text class="fc-label" x="136.0" y="261.1875" text-anchor="middle" dominant-baseline="middle">Stop report build</text><text class="fc-sub" x="136.0" y="276.8125" text-anchor="middle" dominant-baseline="middle">log malformed feed</text>
+<rect class="fc-node fc-rect" x="272.0" y="238.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="261.1875" text-anchor="middle" dominant-baseline="middle">Merge all sources</text><text class="fc-sub" x="360.0" y="276.8125" text-anchor="middle" dominant-baseline="middle">git + automated + manual</text>
+<rect class="fc-node fc-rect" x="272.0" y="336.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="357.1875" text-anchor="middle" dominant-baseline="middle">Group by module</text><text class="fc-label" x="360.0" y="372.8125" text-anchor="middle" dominant-baseline="middle">and deduplicate</text>
+<path class="fc-node fc-doc" d="M272.0,434.0 h176 v48 q-44.0,-14 -88.0,0 q-44.0,14 -88.0,0 z"/><text class="fc-label" x="360.0" y="457.1875" text-anchor="middle" dominant-baseline="middle">Build associate report</text><text class="fc-sub" x="360.0" y="472.8125" text-anchor="middle" dominant-baseline="middle">deterministic document</text>
+<polygon class="fc-node fc-io" points="286.0,532.0 448.0,532.0 434.0,590.0 272.0,590.0"/><text class="fc-label" x="360.0" y="553.1875" text-anchor="middle" dominant-baseline="middle">Send every chunk</text><text class="fc-label" x="360.0" y="568.8125" text-anchor="middle" dominant-baseline="middle">to group</text>
+<polygon class="fc-node fc-decision" points="360.0,617.0 458.0,659.0 360.0,701.0 262.0,659.0"/><text class="fc-label" x="360.0" y="645.375" text-anchor="middle" dominant-baseline="middle">Group delivery</text><text class="fc-label" x="360.0" y="661.0" text-anchor="middle" dominant-baseline="middle">successful?</text><text class="fc-sub" x="360.0" y="676.625" text-anchor="middle" dominant-baseline="middle">delivery evidence gate</text>
+<rect class="fc-node fc-rect" x="48.0" y="728.0" width="176" height="58" rx="10"/><text class="fc-label" x="136.0" y="751.1875" text-anchor="middle" dominant-baseline="middle">Log delivery failure</text><text class="fc-sub" x="136.0" y="766.8125" text-anchor="middle" dominant-baseline="middle">retain previous marker</text>
+<path class="fc-node fc-data" d="M272.0,735.0 a88.0,7 0 0 0 176,0 v44 a88.0,7 0 0 1 -176,0 z"/><path class="fc-node-line" d="M272.0,735.0 a88.0,7 0 0 0 176,0"/><text class="fc-label" x="360.0" y="751.1875" text-anchor="middle" dominant-baseline="middle">Save covered Git HEAD</text><text class="fc-sub" x="360.0" y="766.8125" text-anchor="middle" dominant-baseline="middle">atomic delivered marker</text>
+<rect class="fc-node fc-rect" x="272.0" y="826.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="849.1875" text-anchor="middle" dominant-baseline="middle">Mirror report to owner</text><text class="fc-sub" x="360.0" y="864.8125" text-anchor="middle" dominant-baseline="middle">private output after marker</text>
+<rect class="fc-node fc-pill" x="285.0" y="931.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="953.0" text-anchor="middle" dominant-baseline="middle">Group report delivered</text>
+</svg>
+</div>
+<div class="kora-flow-panel" id="kora-flow-monitor" role="tabpanel" tabindex="0" aria-labelledby="kora-flow-tab-monitor" hidden><p class="kora-flow-caption">Day-off and off-site system monitor</p>
+<svg class="fc-svg" viewBox="0 0 720 926" role="img" aria-labelledby="kora-flow-monitor-title" xmlns="http://www.w3.org/2000/svg">
+<title id="kora-flow-monitor-title">Day-off and off-site system monitor</title>
+<defs><marker id="fc-arrow-monitor" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fc-arrowhead"/></marker></defs>
+<path class="fc-edge" d="M360.0,100.0 L360.0,140.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M360.0,198.0 L360.0,245.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M360.0,289.0 L360.0,336.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M360.0,394.0 L360.0,421.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M262.0,463.0 L136.0,463.0 L136.0,532.0" marker-end="url(#fc-arrow-monitor)"/><rect class="fc-edge-label-bg" x="184.1" y="446.0" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="455.0" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M458.0,463.0 L584.0,463.0 L584.0,532.0" marker-end="url(#fc-arrow-monitor)"/><rect class="fc-edge-label-bg" x="509.4" y="446.0" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="521.0" y="455.0" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M136.0,590.0 L136.0,630.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M136.0,688.0 L136.0,708.0 L360.0,708.0 L360.0,728.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M584.0,590.0 L584.0,659.0 L360.0,659.0 L360.0,728.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-edge" d="M360.0,786.0 L360.0,833.0" marker-end="url(#fc-arrow-monitor)"/>
+<path class="fc-node fc-manual" d="M272.0,56.0 L448.0,42.0 V100.0 H272.0 z"/><text class="fc-label" x="360.0" y="65.1875" text-anchor="middle" dominant-baseline="middle">/dayoff or /away on &lt;date&gt;</text><text class="fc-sub" x="360.0" y="80.8125" text-anchor="middle" dominant-baseline="middle">owner-only command</text>
+<rect class="fc-node fc-rect" x="272.0" y="140.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="163.1875" text-anchor="middle" dominant-baseline="middle">Run baseline check now</text><text class="fc-sub" x="360.0" y="178.8125" text-anchor="middle" dominant-baseline="middle">private, immediate</text>
+<rect class="fc-node fc-pill" x="285.0" y="245.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="267.0" text-anchor="middle" dominant-baseline="middle">Every 10 minutes</text>
+<rect class="fc-node fc-rect" x="272.0" y="336.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="359.1875" text-anchor="middle" dominant-baseline="middle">Run allow-listed checks</text><text class="fc-sub" x="360.0" y="374.8125" text-anchor="middle" dominant-baseline="middle">database · API · model · bots</text>
+<polygon class="fc-node fc-decision" points="360.0,421.0 458.0,463.0 360.0,505.0 262.0,463.0"/><text class="fc-label" x="360.0" y="463.0" text-anchor="middle" dominant-baseline="middle">Any check failing?</text>
+<rect class="fc-node fc-rect" x="48.0" y="532.0" width="176" height="58" rx="10"/><text class="fc-label" x="136.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Map to fixed status phrase</text><text class="fc-sub" x="136.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">no raw errors, URLs, or data</text>
+<rect class="fc-node fc-rect" x="496.0" y="532.0" width="176" height="58" rx="10"/><text class="fc-label" x="584.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Stay quiet</text><text class="fc-sub" x="584.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">no noise while healthy</text>
+<polygon class="fc-node fc-io" points="62.0,630.0 224.0,630.0 210.0,688.0 48.0,688.0"/><text class="fc-label" x="136.0" y="659.0" text-anchor="middle" dominant-baseline="middle">Notify owner privately</text>
+<polygon class="fc-node fc-io" points="286.0,728.0 448.0,728.0 434.0,786.0 272.0,786.0"/><text class="fc-label" x="360.0" y="751.1875" text-anchor="middle" dominant-baseline="middle">Morning and evening digests</text><text class="fc-sub" x="360.0" y="766.8125" text-anchor="middle" dominant-baseline="middle">08:00 · 20:00 PHT while away</text>
+<rect class="fc-node fc-pill" x="285.0" y="833.0" width="150" height="44" rx="22.0"/><text class="fc-label" x="360.0" y="855.0" text-anchor="middle" dominant-baseline="middle">/away off ends window</text>
+</svg>
+</div>
+<div class="kora-flow-panel" id="kora-flow-ask" role="tabpanel" tabindex="0" aria-labelledby="kora-flow-tab-ask" hidden><p class="kora-flow-caption">Ask KORA: bounded local-AI answers</p>
+<svg class="fc-svg" viewBox="0 0 720 730" role="img" aria-labelledby="kora-flow-ask-title" xmlns="http://www.w3.org/2000/svg">
+<title id="kora-flow-ask-title">Ask KORA: bounded local-AI answers</title>
+<defs><marker id="fc-arrow-ask" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fc-arrowhead"/></marker></defs>
+<path class="fc-edge" d="M360.0,100.0 L360.0,127.0" marker-end="url(#fc-arrow-ask)"/>
+<path class="fc-edge" d="M262.0,169.0 L136.0,169.0 L136.0,238.0" marker-end="url(#fc-arrow-ask)"/><rect class="fc-edge-label-bg" x="187.4" y="152.0" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="199.0" y="161.0" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M360.0,211.0 L360.0,225.0" marker-end="url(#fc-arrow-ask)"/><rect class="fc-edge-label-bg" x="368.0" y="209.0" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="382.9" y="218.0" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M458.0,267.0 L584.0,267.0 L584.0,336.0" marker-end="url(#fc-arrow-ask)"/><rect class="fc-edge-label-bg" x="506.1" y="250.0" width="29.799999999999997" height="18" rx="5"/><text class="fc-edge-label" x="521.0" y="259.0" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path class="fc-edge" d="M360.0,309.0 L360.0,336.0" marker-end="url(#fc-arrow-ask)"/><rect class="fc-edge-label-bg" x="368.0" y="313.5" width="23.2" height="18" rx="5"/><text class="fc-edge-label" x="379.6" y="322.5" text-anchor="middle" dominant-baseline="middle">no</text>
+<path class="fc-edge" d="M360.0,394.0 L360.0,434.0" marker-end="url(#fc-arrow-ask)"/>
+<path class="fc-edge" d="M360.0,492.0 L360.0,532.0" marker-end="url(#fc-arrow-ask)"/>
+<path class="fc-edge" d="M360.0,590.0 L360.0,630.0" marker-end="url(#fc-arrow-ask)"/>
+<path class="fc-edge" d="M584.0,394.0 L584.0,512.0 L360.0,512.0 L360.0,630.0" marker-end="url(#fc-arrow-ask)"/>
+<polygon class="fc-node fc-io" points="286.0,42.0 448.0,42.0 434.0,100.0 272.0,100.0"/><text class="fc-label" x="360.0" y="65.1875" text-anchor="middle" dominant-baseline="middle">/ask or @mention</text><text class="fc-sub" x="360.0" y="80.8125" text-anchor="middle" dominant-baseline="middle">operations question</text>
+<polygon class="fc-node fc-decision" points="360.0,127.0 458.0,169.0 360.0,211.0 262.0,169.0"/><text class="fc-label" x="360.0" y="169.0" text-anchor="middle" dominant-baseline="middle">Allowed user?</text>
+<rect class="fc-node fc-rect" x="48.0" y="238.0" width="176" height="58" rx="10"/><text class="fc-label" x="136.0" y="267.0" text-anchor="middle" dominant-baseline="middle">Ignore request</text>
+<polygon class="fc-node fc-decision" points="360.0,225.0 458.0,267.0 360.0,309.0 262.0,267.0"/><text class="fc-label" x="360.0" y="261.1875" text-anchor="middle" dominant-baseline="middle">Identity question?</text><text class="fc-sub" x="360.0" y="276.8125" text-anchor="middle" dominant-baseline="middle">regex match</text>
+<rect class="fc-node fc-rect" x="496.0" y="336.0" width="176" height="58" rx="10"/><text class="fc-label" x="584.0" y="359.1875" text-anchor="middle" dominant-baseline="middle">Fixed KORA reply</text><text class="fc-sub" x="584.0" y="374.8125" text-anchor="middle" dominant-baseline="middle">never reaches the model</text>
+<path class="fc-node fc-data" d="M272.0,343.0 a88.0,7 0 0 0 176,0 v44 a88.0,7 0 0 1 -176,0 z"/><path class="fc-node-line" d="M272.0,343.0 a88.0,7 0 0 0 176,0"/><text class="fc-label" x="360.0" y="359.1875" text-anchor="middle" dominant-baseline="middle">Fetch live ERP snapshot</text><text class="fc-sub" x="360.0" y="374.8125" text-anchor="middle" dominant-baseline="middle">verified application data</text>
+<rect class="fc-node fc-rect" x="272.0" y="434.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="457.1875" text-anchor="middle" dominant-baseline="middle">Ask local model</text><text class="fc-sub" x="360.0" y="472.8125" text-anchor="middle" dominant-baseline="middle">Ollama · bounded timeout</text>
+<rect class="fc-node fc-rect" x="272.0" y="532.0" width="176" height="58" rx="10"/><text class="fc-label" x="360.0" y="555.1875" text-anchor="middle" dominant-baseline="middle">Identity guard on output</text><text class="fc-sub" x="360.0" y="570.8125" text-anchor="middle" dominant-baseline="middle">foreign self-identification swapped</text>
+<polygon class="fc-node fc-io" points="286.0,630.0 448.0,630.0 434.0,688.0 272.0,688.0"/><text class="fc-label" x="360.0" y="653.1875" text-anchor="middle" dominant-baseline="middle">Reply in chat</text><text class="fc-sub" x="360.0" y="668.8125" text-anchor="middle" dominant-baseline="middle">concise, mobile-readable</text>
+</svg>
+</div>
+<ul class="kora-flow-legend" aria-label="Flowchart legend">
+<li><i class="lg-pill"></i> start / end</li>
+<li><i></i> process</li>
+<li><i class="lg-decision"></i> decision</li>
+<li><i class="lg-io"></i> input / output</li>
+<li><i class="lg-data"></i> stored data</li>
+<li><i class="lg-doc"></i> document / manual input</li>
+</ul>
+</div>
+
+      <!-- Guardrails + timeline -->
+      <div class="kora-two-col" style="margin-top: 38px;">
+        <div>
+          <div class="kora-subhead" style="margin-top: 0;">
+            <h3>// guardrails</h3>
+            <p>Rules KORA cannot break</p>
+          </div>
+          <ul class="kora-guardrails">
+            <li><strong>Identity is enforced in code.</strong> Identity questions get a fixed reply, and every model answer is scanned for foreign self-identification before it is sent.</li>
+            <li><strong>Private stays private.</strong> Sales figures and system errors go to configured private recipients; the group only sees operations and sanitized snapshots.</li>
+            <li><strong>Owner-only commands.</strong> Work-log and away-mode commands answer only to one account, on top of an optional allowlist for everything else.</li>
+            <li><strong>Sanitized developer feed.</strong> Report items are scrubbed of control characters, secret-looking values, and private file paths before they are accepted.</li>
+            <li><strong>Idempotent by design.</strong> Each report item carries a stable work ID: exact repeats are acknowledged, conflicting reuse is rejected with HTTP 409.</li>
+            <li><strong>Fail closed.</strong> Malformed or wrong-date feed data stops the report build instead of sending a partial report.</li>
+            <li><strong>Delivery is evidence.</strong> The "delivered" marker is saved only after a successful group send, so nothing is claimed that did not happen.</li>
+            <li><strong>The model is an adviser.</strong> Local AI calls run on-premise with bounded timeouts; system authority stays in verified ERP data.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="kora-subhead" style="margin-top: 0;">
+            <h3>// changelog</h3>
+            <p>How KORA grew</p>
+          </div>
+          <ol class="kora-timeline">
+            <li><time>2026-07-01</time><strong>First commits</strong><p>Daily report, ERP queries, and a trigger command replace manual Telegram updates.</p></li>
+            <li><time>2026-07-05</time><strong>Old bot retired</strong><p>The earlier Google-Sheets-based bot is deleted; KORA becomes the single ERP-integrated assistant.</p></li>
+            <li><time>2026-07-27</time><strong>Local-AI orchestration</strong><p>Free-form answers backed by an on-premise Ollama model with live ERP context.</p></li>
+            <li><time>2026-07-30</time><strong>Model-independent identity</strong><p>Application-level identity guard so KORA is KORA whichever model runs underneath.</p></li>
+            <li><time>2026-08-03</time><strong>Private recipient routing</strong><p>Sales and sensitive output split away from the group chat.</p></li>
+            <li><time>2026-08-09</time><strong>Associate report</strong><p>7 PM daily work report from git commits, /mytask and /dayoff, plus a 6:30 PM cutoff reminder.</p></li>
+            <li><time>2026-08-16</time><strong>Developer feed + day-off monitor</strong><p>Idempotent report-item API and 10-minute system checks while the owner is off.</p></li>
+            <li><time>2026-08-18</time><strong>Off-site mode</strong><p>Multi-day /away windows with private morning and evening digests.</p></li>
+            <li><time>2026-08-26</time><strong>Hatched as a desktop pet</strong><p>KORA gets a face: a validated 8 × 11 animated sprite atlas with 9 states and 16 look directions.</p></li>
+            <li><time>2026-09</time><strong>Release digests</strong><p>Every release's commits and developer-feed items flow into the nightly associate report, so the group sees what shipped without a manual write-up.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      </div><!-- End KORA block -->
+
     </div>
   </section><!-- End Portfolio Section -->
 
+
+
+
+
+  <!-- ======= JHON Section ======= -->
+  <section id="jhon" class="jhon">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>jhon/navigator</h2>
+        <p>Ask JHON</p>
+      </div>
+
+      <div class="jhon-layout">
+        <aside class="jhon-side">
+          <div class="jhon-card">
+            <div class="jhon-portrait" aria-hidden="true">J</div>
+            <h3>JHON</h3>
+            <span class="jhon-expansion">Jhon's Human-Oriented Navigator</span>
+            <p>A visitor-facing assistant that answers questions about me: the systems I build, how KORA works, my skills and experience, and how to get in touch. Human-oriented means it navigates; it never acts on anyone's behalf.</p>
+          </div>
+          <div class="jhon-card">
+            <ul class="jhon-rules">
+              <li><strong>Grounded.</strong> Only knows what is published on this portfolio.</li>
+              <li><strong>Honest.</strong> Says so when something isn't on the page.</li>
+              <li><strong>Private.</strong> The built-in engine runs in your browser; nothing is stored.</li>
+              <li><strong>Read-only.</strong> No bookings, emails, or promises on my behalf.</li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="jhon-chat" id="jhon-chat">
+          <div class="jhon-chat-head">
+            <span class="jhon-chat-title"><i class="bi bi-chat-square-text"></i> chat with JHON</span>
+            <span class="jhon-engine">built-in knowledge engine</span>
+          </div>
+          <div class="jhon-log" role="log" aria-live="polite" aria-label="Conversation with JHON"></div>
+          <div class="jhon-chips" aria-label="Suggested questions">
+            <button class="jhon-chip" type="button" data-q="Who is Jhon?">Who is Jhon?</button>
+            <button class="jhon-chip" type="button" data-q="What systems has he built?">What has he built?</button>
+            <button class="jhon-chip" type="button" data-q="How does KORA work?">How does KORA work?</button>
+            <button class="jhon-chip" type="button" data-q="Tell me about the accounting module">BIR accounting module</button>
+            <button class="jhon-chip" type="button" data-q="What are his skills?">Skills</button>
+            <button class="jhon-chip" type="button" data-q="Is he available for hire?">Available for hire?</button>
+            <button class="jhon-chip" type="button" data-q="How can I contact him?">Contact</button>
+          </div>
+          <form class="jhon-form" autocomplete="off">
+            <label class="visually-hidden" for="jhon-input">Ask JHON a question</label>
+            <input class="jhon-input" id="jhon-input" type="text" maxlength="600" placeholder="Ask about Jhon's systems, skills, or availability…">
+            <button class="jhon-send" type="submit"><i class="bi bi-cursor-fill"></i><span>Send</span></button>
+          </form>
+          <p class="jhon-note">JHON answers from Jhon's published profile. For anything else, email jhonwilfreddrio@gmail.com.</p>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End JHON Section -->
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
@@ -766,17 +1340,21 @@
       <form action="https://formspree.io/f/xldlvvbb" method="POST" role="form" class="php-email-form mt-4" id="my-form">
         <div class="row">
           <div class="col-md-6 form-group">
+            <label class="visually-hidden" for="name">Your Name</label>
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label class="visually-hidden" for="email">Your Email</label>
             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
           </div>
         </div>
         <div class="form-group mt-3">
+          <label class="visually-hidden" for="subject">Subject</label>
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required=""></textarea>
+          <label class="visually-hidden" for="message">Message</label>
+          <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required=""></textarea>
         </div>
         <div class="my-3">
           <div class="loading">Loading</div>
@@ -798,7 +1376,8 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=20260907"></script>
+  <script src="assets/js/jhon.js?v=20260907"></script>
 
 </body>
 
