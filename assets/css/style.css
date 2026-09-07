@@ -3933,6 +3933,8 @@ body[data-theme="light"] .jhon-portrait img {
   width: 20px;
   height: 20px;
   object-fit: contain;
+  /* white source mark rendered as near-black on the amber badge */
+  filter: invert(1) brightness(0.2);
 }
 
 .jhon-portrait::after {
