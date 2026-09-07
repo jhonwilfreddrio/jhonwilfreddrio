@@ -9,7 +9,7 @@
  *
  *   OPENAI_API_KEY     -> provider "openai"  (default model gpt-4.1-mini)
  *   GROQ_API_KEY       -> provider "groq"    (default model llama-3.3-70b-versatile, free tier)
- *   GEMINI_API_KEY     -> provider "gemini"  (default model gemini-2.0-flash, free tier)
+ *   GEMINI_API_KEY     -> provider "gemini"  (default model gemini-3.6-flash, free tier)
  *   OPENROUTER_API_KEY -> provider "openrouter" (default model openai/gpt-4o-mini)
  *
  * (Anthropic can be added back by installing @anthropic-ai/sdk and wiring a
@@ -31,7 +31,7 @@ const PROVIDERS = {
   openai: { key: "OPENAI_API_KEY", model: "gpt-4.1-mini", url: "https://api.openai.com/v1/chat/completions" },
   groq: { key: "GROQ_API_KEY", model: "llama-3.3-70b-versatile", url: "https://api.groq.com/openai/v1/chat/completions" },
   openrouter: { key: "OPENROUTER_API_KEY", model: "openai/gpt-4o-mini", url: "https://openrouter.ai/api/v1/chat/completions" },
-  gemini: { key: "GEMINI_API_KEY", model: "gemini-2.0-flash", url: "https://generativelanguage.googleapis.com/v1beta/models" },
+  gemini: { key: "GEMINI_API_KEY", model: "gemini-3.6-flash", url: "https://generativelanguage.googleapis.com/v1beta/models" },
 };
 const DETECT_ORDER = ["gemini", "groq", "openai", "openrouter"];
 
