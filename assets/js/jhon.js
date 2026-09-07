@@ -327,6 +327,16 @@
 
   /* ---------- boot ---------- */
 
+  // Probe the live endpoint once so the header label is accurate before the
+  // first question: a deployed function answers GET with 405, a missing one 404.
+  fetch("/.netlify/functions/jhon", { method: "GET" }).then(function (res) {
+    if (res.status === 405) {
+      setEngine("live model · ready");
+    } else if (res.status === 404 || res.status === 503) {
+      liveAvailable = false;
+    }
+  }).catch(function () { /* keep default label */ });
+
   fetch("assets/data/jhon-profile.json?v=20260907").then(function (r) { return r.json(); }).then(function (data) {
     profile = data;
     addMessage("assistant",

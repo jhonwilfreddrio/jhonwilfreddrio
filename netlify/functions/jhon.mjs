@@ -162,13 +162,22 @@ async function callOpenAICompatible(provider, apiKey, model, system, messages) {
 
 async function callGemini(apiKey, model, system, messages) {
   const url = `${PROVIDERS.gemini.url}/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
+  const generationConfig = { maxOutputTokens: MAX_OUTPUT_TOKENS };
+  if (/^gemini-3(?:[.-])/.test(model)) {
+    // Visitor answers are intentionally short; keep Gemini 3's internal
+    // reasoning from consuming the reply budget.
+    generationConfig.thinkingConfig = { thinkingLevel: "minimal" };
+  } else {
+    // Preserve the previous behavior for explicit older-model overrides.
+    generationConfig.temperature = 0.4;
+  }
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       system_instruction: { parts: [{ text: system }] },
       contents: messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] })),
-      generationConfig: { maxOutputTokens: MAX_OUTPUT_TOKENS, temperature: 0.4 },
+      generationConfig,
     }),
   });
   if (!res.ok) throw await upstreamError("gemini", res);

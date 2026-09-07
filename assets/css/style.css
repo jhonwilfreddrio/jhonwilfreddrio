@@ -4278,6 +4278,21 @@ body[data-theme="light"] .jhon-portrait img {
   }
 }
 
+/* Collapsed header on phones: keep the name clear of the fixed toggle buttons */
+@media (max-width: 991px) {
+  #header.header-top h1 {
+    font-size: 22px;
+    line-height: 1.2;
+    padding-right: 132px;
+  }
+}
+
+@media (max-width: 420px) {
+  #header.header-top h1 {
+    font-size: 19px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
