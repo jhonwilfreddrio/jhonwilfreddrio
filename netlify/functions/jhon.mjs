@@ -127,6 +127,21 @@ function pickProvider() {
 
 /* ---------- provider calls ---------- */
 
+// Turn a non-2xx upstream response into an Error carrying the status and the
+// provider's own message (never the key), and log it for Netlify's function log.
+async function upstreamError(provider, res) {
+  let detail = "";
+  try {
+    const body = await res.json();
+    detail = body?.error?.message || body?.message || JSON.stringify(body).slice(0, 300);
+  } catch {
+    detail = "(no body)";
+  }
+  detail = String(detail).replace(/AIza[0-9A-Za-z_-]{20,}|sk-[0-9A-Za-z_-]{16,}|gsk_[0-9A-Za-z_-]{16,}/g, "[redacted]").slice(0, 300);
+  console.error(`JHON upstream ${provider} ${res.status}: ${detail}`);
+  return Object.assign(new Error(`${provider} ${res.status}`), { status: res.status, detail });
+}
+
 async function callOpenAICompatible(provider, apiKey, model, system, messages) {
   const headers = { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` };
   if (provider === "openrouter") headers["X-Title"] = "JHON portfolio assistant";
@@ -140,7 +155,7 @@ async function callOpenAICompatible(provider, apiKey, model, system, messages) {
       messages: [{ role: "system", content: system }, ...messages],
     }),
   });
-  if (!res.ok) throw Object.assign(new Error(`${provider} ${res.status}`), { status: res.status });
+  if (!res.ok) throw await upstreamError(provider, res);
   const data = await res.json();
   return data?.choices?.[0]?.message?.content || "";
 }
@@ -156,7 +171,7 @@ async function callGemini(apiKey, model, system, messages) {
       generationConfig: { maxOutputTokens: MAX_OUTPUT_TOKENS, temperature: 0.4 },
     }),
   });
-  if (!res.ok) throw Object.assign(new Error(`gemini ${res.status}`), { status: res.status });
+  if (!res.ok) throw await upstreamError("gemini", res);
   const data = await res.json();
   return (data?.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("").trim();
 }
@@ -198,9 +213,11 @@ export default async (request) => {
     return json(200, { reply, provider, model });
   } catch (error) {
     const status = error && error.status;
-    if (status === 401 || status === 403) return json(503, { error: "live model key rejected" });
-    if (status === 429) return json(429, { error: "busy, try again shortly" });
-    if (status) return json(502, { error: `upstream ${status}` });
+    const detail = (error && error.detail) || "";
+    if (status === 401 || status === 403) return json(503, { error: "live model key rejected", provider, model, detail });
+    if (status === 429) return json(429, { error: "busy, try again shortly", provider, model, detail });
+    if (status) return json(502, { error: `upstream ${status}`, provider, model, detail });
+    console.error("JHON unexpected", error && error.message);
     return json(500, { error: "unexpected error" });
   }
 };
