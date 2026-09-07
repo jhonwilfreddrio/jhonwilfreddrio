@@ -36,6 +36,16 @@
     return n;
   }
 
+  function avatar() {
+    var av = el("div", "jhon-avatar");
+    av.setAttribute("aria-hidden", "true");
+    var img = el("img");
+    img.src = "assets/img/jd-mark.png";
+    img.alt = "";
+    av.appendChild(img);
+    return av;
+  }
+
   function scrollLog() {
     log.scrollTop = log.scrollHeight;
   }
@@ -43,9 +53,7 @@
   function addMessage(role, text, meta) {
     var row = el("div", "jhon-msg jhon-msg--" + role);
     if (role === "assistant") {
-      var av = el("div", "jhon-avatar", "J");
-      av.setAttribute("aria-hidden", "true");
-      row.appendChild(av);
+      row.appendChild(avatar());
     }
     var bubble = el("div", "jhon-bubble");
     text.split(/\n{2,}/).forEach(function (para) {
@@ -73,9 +81,7 @@
 
   function addTyping() {
     var row = el("div", "jhon-msg jhon-msg--assistant jhon-typing");
-    var av = el("div", "jhon-avatar", "J");
-    av.setAttribute("aria-hidden", "true");
-    row.appendChild(av);
+    row.appendChild(avatar());
     var b = el("div", "jhon-bubble");
     for (var d = 0; d < 3; d++) b.appendChild(el("span", "jhon-dot"));
     row.appendChild(b);
