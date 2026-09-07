@@ -10,7 +10,7 @@ Static portfolio deployed on Netlify (`publish = "."`).
 ## JHON engines
 
 1. **Built-in knowledge engine** (`assets/js/jhon.js`) — keyword matching over the profile, runs in the browser, no key, no data leaves the page. Always available.
-2. **Live LLM** (`netlify/functions/jhon.mjs`) — a hosted model grounded in the same profile JSON. It turns on automatically when one of these environment variables exists on the Netlify site (first match wins):
+2. **Live LLM** (`netlify/functions/jhon.mjs`) — a hosted model grounded in the same profile JSON. It turns on automatically when one of these environment variables exists on the Netlify site (checked in this order: Gemini, Groq, OpenAI, OpenRouter; first match wins):
 
 | Env var | Provider | Default model | Notes |
 |---|---|---|---|

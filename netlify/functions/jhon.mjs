@@ -33,7 +33,7 @@ const PROVIDERS = {
   openrouter: { key: "OPENROUTER_API_KEY", model: "openai/gpt-4o-mini", url: "https://openrouter.ai/api/v1/chat/completions" },
   gemini: { key: "GEMINI_API_KEY", model: "gemini-2.0-flash", url: "https://generativelanguage.googleapis.com/v1beta/models" },
 };
-const DETECT_ORDER = ["openai", "groq", "gemini", "openrouter"];
+const DETECT_ORDER = ["gemini", "groq", "openai", "openrouter"];
 
 let profileCache = null;
 
