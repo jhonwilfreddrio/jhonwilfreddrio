@@ -185,6 +185,11 @@
     if (has(q, ["deploy", " ci ", " ci/cd", "github actions", "devops", "release", "backup", "rollback", "reliab", "engineering practice", "how does he ship"])) {
       return p.engineering;
     }
+    if (has(q, ["testimonial", "recommend", "reference", "say about", "think of him", "colleague", "coworker", "workmate", "review", "feedback", "people say"])) {
+      return "What people who work with him say:\n\n" + p.testimonials.map(function (t) {
+        return "“" + t.quote + "” — **" + t.name + "**, " + t.role;
+      }).join("\n\n");
+    }
     if (has(q, ["experience", "career", "background", "history", "worked", "previous job", "job history", "resume", " cv "])) {
       return "Career so far:\n\n" + p.experience.map(function (e) {
         return "• **" + e.role + "** — " + e.org + " (" + e.period + "). " + e.summary;
