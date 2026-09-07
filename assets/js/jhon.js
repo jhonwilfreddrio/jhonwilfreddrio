@@ -117,6 +117,20 @@
     return out;
   }
 
+  function ageFrom(iso) {
+    var b = new Date(iso + "T00:00:00");
+    var now = new Date();
+    var age = now.getFullYear() - b.getFullYear();
+    var m = now.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < b.getDate())) age--;
+    return age;
+  }
+
+  function prettyDate(iso) {
+    var d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  }
+
   function listSystems() {
     return profile.systems.map(function (s) { return "• **" + s.name + "** — " + s.status; }).join("\n");
   }
@@ -195,10 +209,16 @@
       return "\"" + p.tagline + "\"\n\n" + p.philosophy;
     }
     if (has(q, ["who is jhon", "about jhon", "tell me about jhon", "who is he", "introduce", "about him", "summary", "overview", "jhon wilfred"])) {
-      return p.name + " is a " + p.title + " at " + p.company + ", " + p.companyDescription + ". Since " + p.since + " he has built and operates six systems: ERP-lite, a BIR-ready accounting module, K-PICK HRIS, KORA, a real-time dispatch board, and the public B2B website.\n\n" + p.philosophy;
+      return p.name + " is a " + ageFrom(p.personal.birthDate) + "-year-old " + p.title + " at " + p.company + ", " + p.companyDescription + ". Since " + p.since + " he has built and operates six systems: ERP-lite, a BIR-ready accounting module, K-PICK HRIS, KORA, a real-time dispatch board, and the public B2B website.\n\n" + p.philosophy;
     }
-    if (has(q, [" age ", "how old", "birthday", " born "])) {
-      return "I only share what's published on the portfolio, and that isn't on it. You can ask him directly at " + p.email + ".";
+    if (has(q, [" age ", "how old", "birthday", " born ", "birth date", "birthdate"])) {
+      return "Jhon is " + ageFrom(p.personal.birthDate) + " years old (born " + prettyDate(p.personal.birthDate) + ").";
+    }
+    if (has(q, ["gender", " male", "female", " sex ", " man ", "woman", " guy ", " boy", "pronoun"])) {
+      return "Jhon is male (" + p.pronouns + ").";
+    }
+    if (has(q, ["single", "married", "marital", "civil status", "relationship", "girlfriend", "wife", "partner", "taken"])) {
+      return "He is " + p.personal.civilStatus + ".";
     }
     if (has(q, [" ai ", " model", " llm", "ollama", "local ai", "codex", "claude", "chatgpt"])) {
       return "Jhon runs local AI on-premise: KORA answers questions through an Ollama-hosted Qwen model with an identity guard, and his development workflow uses local LLM workers as advisers that never get deployment authority. I'm JHON, a separate visitor-facing assistant that only knows this portfolio.";
