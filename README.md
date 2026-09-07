@@ -18,7 +18,6 @@ Static portfolio deployed on Netlify (`publish = "."`).
 | `GROQ_API_KEY` | Groq | `llama-3.3-70b-versatile` | free tier at console.groq.com |
 | `GEMINI_API_KEY` | Google Gemini | `gemini-2.0-flash` | free tier at aistudio.google.com |
 | `OPENROUTER_API_KEY` | OpenRouter | `openai/gpt-4o-mini` | many models, some free |
-| `ANTHROPIC_API_KEY` | Anthropic | `claude-opus-5` | uses the bundled SDK |
 
 Optional: `JHON_PROVIDER` forces one provider when several keys exist; `JHON_MODEL` overrides the model name.
 

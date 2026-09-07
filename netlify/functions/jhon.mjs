@@ -11,7 +11,9 @@
  *   GROQ_API_KEY       -> provider "groq"    (default model llama-3.3-70b-versatile, free tier)
  *   GEMINI_API_KEY     -> provider "gemini"  (default model gemini-2.0-flash, free tier)
  *   OPENROUTER_API_KEY -> provider "openrouter" (default model openai/gpt-4o-mini)
- *   ANTHROPIC_API_KEY  -> provider "anthropic" (default model claude-opus-5)
+ *
+ * (Anthropic can be added back by installing @anthropic-ai/sdk and wiring a
+ * provider entry; it was removed so the site builds with no npm install.)
  *
  * JHON_MODEL overrides the model name for the chosen provider.
  * With no key at all the function returns 503 and the page falls back to its
@@ -30,9 +32,8 @@ const PROVIDERS = {
   groq: { key: "GROQ_API_KEY", model: "llama-3.3-70b-versatile", url: "https://api.groq.com/openai/v1/chat/completions" },
   openrouter: { key: "OPENROUTER_API_KEY", model: "openai/gpt-4o-mini", url: "https://openrouter.ai/api/v1/chat/completions" },
   gemini: { key: "GEMINI_API_KEY", model: "gemini-2.0-flash", url: "https://generativelanguage.googleapis.com/v1beta/models" },
-  anthropic: { key: "ANTHROPIC_API_KEY", model: "claude-opus-5" },
 };
-const DETECT_ORDER = ["openai", "groq", "gemini", "openrouter", "anthropic"];
+const DETECT_ORDER = ["openai", "groq", "gemini", "openrouter"];
 
 let profileCache = null;
 
@@ -160,21 +161,6 @@ async function callGemini(apiKey, model, system, messages) {
   return (data?.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("").trim();
 }
 
-async function callAnthropic(model, system, messages) {
-  // Loaded lazily so deployments without the SDK installed still bundle cleanly.
-  const { default: Anthropic } = await import("@anthropic-ai/sdk");
-  const client = new Anthropic();
-  const response = await client.messages.create({
-    model,
-    max_tokens: MAX_OUTPUT_TOKENS,
-    output_config: { effort: "low" },
-    system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
-    messages,
-  });
-  if (response.stop_reason === "refusal") return "";
-  return response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
-}
-
 /* ---------- handler ---------- */
 
 export default async (request) => {
@@ -205,7 +191,6 @@ export default async (request) => {
   try {
     let reply;
     if (provider === "gemini") reply = await callGemini(apiKey, model, system, messages);
-    else if (provider === "anthropic") reply = await callAnthropic(model, system, messages);
     else reply = await callOpenAICompatible(provider, apiKey, model, system, messages);
 
     reply = (reply || "").trim();
