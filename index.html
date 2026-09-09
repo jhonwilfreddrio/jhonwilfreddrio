@@ -522,9 +522,10 @@
         <div class="col-lg-12 d-flex justify-content-center">
           <ul id="portfolio-flters">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-systems">Production Systems</li>
-            <li data-filter=".filter-excel">Excel VBA</li>
+            <li data-filter=".filter-systems">Systems</li>
+            <li data-filter=".filter-ai">AI &amp; Automation</li>
             <li data-filter=".filter-web">Web</li>
+            <li data-filter=".filter-excel">Excel VBA</li>
           </ul>
         </div>
       </div>
@@ -687,7 +688,7 @@
         </div>
 
         <!-- KORA Operations Automation -->
-        <div class="col-12 col-lg-12 portfolio-item filter-systems">
+        <div class="col-12 col-lg-12 portfolio-item filter-ai">
           <div class="csf-card csf-card--has-image">
             <div class="csf-accent-bar"></div>
             <div class="csf-preview-col csf-preview-col--kora">
@@ -729,6 +730,41 @@
                 </div>
               </div>
               <a class="csf-footer-link" href="#kora"><i class="bi bi-arrow-right-circle"></i> Meet KORA: profile, duties &amp; flowcharts</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- JHON visitor assistant -->
+        <div class="col-12 col-lg-12 portfolio-item filter-ai">
+          <div class="csf-card">
+            <div class="csf-accent-bar"></div>
+            <div class="csf-content">
+              <div class="csf-header">
+                <div class="csf-icon-wrap"><i class="bi bi-chat-square-text"></i></div>
+                <div>
+                  <span class="case-file-label">jhon/navigator</span>
+                  <h3 class="csf-title">JHON — Jhon's Human-Oriented Navigator</h3>
+                  <span class="system-status">Live on this site · Gemini-backed with an offline fallback</span>
+                  <div class="csf-tags">
+                    <span>Netlify Functions</span><span>Gemini API</span><span>Vanilla JS</span><span>Grounded prompting</span>
+                  </div>
+                </div>
+              </div>
+              <div class="csf-body">
+                <div class="csf-col">
+                  <span class="case-key">Problem</span>
+                  <p>A portfolio is read once; visitors have follow-up questions nobody is there to answer. I wanted an assistant that speaks for me accurately, without inventing anything and without a server I have to babysit.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">What I Built</span>
+                  <p>A chat that answers only from a published profile file. A serverless function calls a hosted model with the profile as its sole source, chooses the provider from whichever key is configured, and passes back the provider's own errors for diagnostics. If no key or quota is available, a built-in keyword engine in the browser answers from the same file.</p>
+                </div>
+                <div class="csf-col">
+                  <span class="case-key">Result</span>
+                  <p>Visitors get natural answers about my systems, skills, and availability, and the page keeps working on a plain static deploy. The same pattern (grounded prompt, provider-agnostic, fail-safe fallback) is how I keep AI bounded in KORA.</p>
+                </div>
+              </div>
+              <a class="csf-footer-link" href="#jhon"><i class="bi bi-arrow-right-circle"></i> Ask JHON something</a>
             </div>
           </div>
         </div>
@@ -1404,7 +1440,7 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js?v=20260907"></script>
+  <script src="assets/js/main.js?v=20260909"></script>
   <script src="assets/js/jhon.js?v=20260907e"></script>
 
 </body>

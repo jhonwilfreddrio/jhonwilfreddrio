@@ -327,9 +327,19 @@
           });
           this.classList.add("filter-active");
 
-          portfolioIsotope.arrange({
-            filter: this.getAttribute("data-filter"),
-          });
+          let filter = this.getAttribute("data-filter");
+          portfolioIsotope.arrange({ filter: filter });
+
+          // The KORA profile block lives outside the grid; show it only for
+          // "All" and "AI & Automation".
+          let koraBlock = select("#kora");
+          if (koraBlock) {
+            koraBlock.hidden = !(filter === "*" || filter === ".filter-ai");
+          }
+          let leaps = select("#leaps");
+          if (leaps) {
+            leaps.hidden = !(filter === "*" || filter === ".filter-systems" || filter === ".filter-ai");
+          }
         },
         true
       );
