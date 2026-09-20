@@ -41,7 +41,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -530,7 +530,7 @@ section .container {
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
 
@@ -3746,7 +3746,7 @@ body[data-theme="light"] .kora-json .n { color: #1f6fb2; }
   min-width: 560px;
   height: auto;
   margin: 0 auto;
-  font-family: "Inter", "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .fc-node {
@@ -4186,7 +4186,7 @@ body[data-theme="light"] .jhon-portrait img {
   background: var(--bg);
   box-shadow: var(--nm-inset-sm);
   color: var(--text-strong);
-  font-family: "Inter", "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
 }
 
@@ -4302,4 +4302,197 @@ body[data-theme="light"] .jhon-portrait img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+
+/*--------------------------------------------------------------
+# Scroll reveal and metric count-up (assets/js/fx.js)
+--------------------------------------------------------------*/
+
+/* Scroll reveal. The class is added by JS only to elements that are still
+   below the fold, so nothing visible at load ever starts hidden. */
+.fx-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  will-change: opacity, transform;
+}
+
+.fx-reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Stagger the duty tiles so the grid resolves instead of snapping at once. */
+.kora-duty.fx-reveal:nth-child(2n) { transition-delay: 0.07s; }
+.kora-duty.fx-reveal:nth-child(3n) { transition-delay: 0.13s; }
+
+/* Counting numbers: lock the glyph width so the card does not reflow while
+   the value climbs. */
+.csf-metric > strong.is-counting,
+.kora-fact > strong.is-counting {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* The newest KORA duty gets a marker so the addition is findable. */
+.kora-duty--feature {
+  border-color: rgba(240, 165, 0, 0.45);
+}
+
+.kora-duty-flag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #10131a;
+  background: #F0A500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-reveal,
+  .fx-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Case-study disclosure — lead line, toggle, collapsible detail
+--------------------------------------------------------------*/
+
+/* One sentence that has to carry the card on its own, because the three
+   detail columns are folded away until asked for. */
+.csf-lead {
+  margin: 14px 0 0;
+  max-width: 68ch;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+
+.csf-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: var(--nm-raised-sm);
+  color: var(--text-soft);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.csf-toggle:hover,
+.csf-toggle:focus-visible {
+  color: var(--accent);
+}
+
+.csf-toggle i {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.csf-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+.csf-toggle[aria-expanded="true"] {
+  box-shadow: var(--nm-inset-sm);
+}
+
+/* Collapse only when JS can reopen it. Without .has-js the detail simply
+   stays in the page, fully readable. */
+.has-js .csf-detail {
+  display: none;
+}
+
+.has-js .csf-detail.is-open {
+  display: block;
+  animation: csf-unfold 0.3s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes csf-unfold {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.csf-detail .csf-body {
+  margin-top: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js .csf-detail.is-open { animation: none; }
+  .csf-toggle i { transition: none; }
+}
+
+
+/* Contact: the section listed details but never made an ask. */
+.contact-cta {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.contact-cta-lead {
+  margin: 0 0 22px;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+.contact-cta-lead strong {
+  color: var(--text-strong);
+}
+
+.contact-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.info-box p a:not(.contact-action) {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.info-box p a:not(.contact-action):hover,
+.info-box p a:not(.contact-action):focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+
+/* The KORA deep dive and the older releases fold away by default; both reuse
+   the case-study toggle so there is one disclosure pattern on the page. */
+.kora-deep-toggle,
+.leaps-toggle {
+  display: flex;
+  margin: 4px auto 0;
+}
+
+.has-js .leaps-grid .leap-extra {
+  display: none;
+}
+
+.has-js .leaps-wrap.is-open .leap-extra {
+  display: list-item;
 }

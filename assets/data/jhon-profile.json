@@ -37,8 +37,8 @@
       "name": "K-Pick ERP-lite",
       "status": "Production, running in parallel validation with the company's official records",
       "stack": "Python, FastAPI, PostgreSQL, SQLAlchemy 2, Alembic, vanilla JavaScript, launchd on a Mac mini",
-      "metrics": "133 API routes, 30 schema migrations, 52 data models, 33 module views, 100 test files, 209 commits since June 2026",
-      "summary": "Inventory, operations, and finance platform: product master with unit conversion, append-only stock ledger with FEFO (first-expiry-first-out) allocation, Shopee / Lazada / TikTok Shop imports with mapping and duplicate prevention, order management with barcode checking, a phone-based packing scanner, multi-user count sessions, returns with condition and expiry, purchase planning, a multi-platform Finance Board, staff KPIs, customer statements, installation job orders, and configurable roles. Deployed with a guarded deploy script, pre-migration backups, health-check gates, and one-command rollback."
+      "metrics": "180 API routes, 37 schema migrations, 50 database tables, 31 module views, 124 test files, 252 commits since June 2026",
+      "summary": "Inventory, operations, and finance platform: product master with unit conversion, append-only stock ledger with FEFO (first-expiry-first-out) allocation, Shopee / Lazada / TikTok Shop imports with mapping and duplicate prevention, order management with barcode checking, a phone-based packing scanner, multi-user count sessions, returns with condition and expiry, purchase planning, a multi-platform Finance Board, staff KPIs, customer statements, installation job orders, a marketing module that pulls daily TikTok ad cost from a connected advertiser account, a live Competitor Watchlist page, freight as a derived formula with landed cost from cost and weight, income frozen per stock movement for declaration, and configurable roles. Reached a declared system version 1.0 with a published in-app change log on 2026-09-09. Deployed with a guarded deploy script, pre-migration backups, health-check gates, and one-command rollback."
     },
     {
       "id": "accounting",
@@ -53,7 +53,7 @@
       "name": "K-PICK HRIS",
       "status": "In development, not yet deployed",
       "stack": "FastAPI, SQLAlchemy 2, Alembic, React 18, TypeScript, Vite",
-      "metrics": "23 route modules, 188 API endpoints, 22 pure service modules, 28 React pages, 43 test files, 12 migrations",
+      "metrics": "24 route modules, 188 API endpoints, 23 pure service modules, 29 React pages, 43 test files, 12 migrations",
       "summary": "Standalone Philippine HR, timekeeping, and payroll system: 201 records, biometric attendance import, day-type and night-differential resolution, request-based overtime and rest-day authorization, failure-to-swipe corrections, statutory leave types, versioned SSS / PhilHealth / Pag-IBIG / withholding-tax tables, a pure payroll engine that rounds once to the centavo, A5 payslip PDFs, 13th-month and final-pay computation, recruitment, appraisals, disciplinary cases under the twin-notice rule, and an employee self-service portal. Role-based pay visibility keeps amounts away from HR while accounting sees the computed payslip."
     },
     {
@@ -61,8 +61,24 @@
       "name": "KORA",
       "status": "Production Telegram operations assistant",
       "stack": "Python, python-telegram-bot, PostgreSQL, Ollama with a local Qwen 2.5 14B model, scheduled jobs in Philippine time",
-      "metrics": "10 Telegram commands, 8 scheduled jobs, about 5,600 lines across 8 modules, first commit 2026-07-01, hatched as a desktop mascot 2026-08-26",
-      "summary": "Reads the ERP database for a 7 PM daily operations report, assembles Jhon's daily associate report from git commits, an idempotent developer-report feed, and manual /mytask notes, monitors system health every 10 minutes while he is off-site, answers questions through an on-premise model with an application-level identity guard, and routes sensitive figures to private recipients only. Fails closed on malformed input and claims delivery only with evidence. Commands include /report, /today, /shipment, /status, /ask, /mytask, /dayoff, /away, /error, and /nespresso."
+      "metrics": "11 Telegram commands, 10 scheduled jobs, about 10,200 lines across 16 modules, first commit 2026-07-01, hatched as a desktop mascot 2026-08-26",
+      "summary": "Reads the ERP database for a 7 PM daily operations report, assembles Jhon's daily associate report from git commits, an idempotent developer-report feed, and manual /mytask notes, monitors system health every 10 minutes while he is off-site, answers questions through an on-premise model with an application-level identity guard, and routes sensitive figures to private recipients only. Since 2026-09-17 she also runs a daily competitor price watchlist every morning. Fails closed on malformed input and claims delivery only with evidence. Commands include /report, /today, /shipment, /status, /ask, /mytask, /reporttime, /dayoff, /away, /error, and /nespresso."
+    },
+    {
+      "id": "watchlist",
+      "name": "Competitor Watchlist",
+      "status": "Shipped 2026-09-17, runs every morning as part of KORA",
+      "stack": "Python, a Chrome extension collector, an on-premise Qwen model for matching, Excel generation, scheduled jobs on macOS",
+      "metrics": "7 product lines watched daily, 8 pipeline modules, about 3,800 lines, 10 movement thresholds, 3 delivery surfaces",
+      "summary": "Daily marketplace price intelligence. A browser extension collects competitor listings from a logged-in session and hands each capture to a local receiver; a scheduled morning job pulls K-Pick's own figures from the ERP, asks a local model which competitor variant matches which K-Pick SKU and how many pieces it holds, and caches the answer. A rule-based spec guard reading gauge, length, volume, tip, flavour and pack count must agree before any match is used, otherwise the item is published as not compared with the reason given. Surviving matches are restated per K-Pick's own pack size and adjusted to what a buyer actually pays. Output goes to three surfaces: a Telegram digest of what moved, a live Competitor Watchlist page in the ERP, and an Excel workbook whose every formula is recalculated and verified before the report is allowed out. A challenge on the collector pauses the run, alerts Jhon privately, and retries on its own."
+    },
+    {
+      "id": "devassistant",
+      "name": "Dev Assistant",
+      "status": "Shipped 2026-09-11, development machine only by design",
+      "stack": "Python, python-telegram-bot, SQLite, Git worktrees",
+      "metrics": "14 modules, 11 test files, 2 coding engines dispatched",
+      "summary": "Jhon's private task ledger and AI job dispatcher. A checklist ledger in SQLite publishes finished items into KORA's associate-report feed, so the daily report is a by-product of marking work done. A dispatcher takes a coding job, picks an engine, gives it an isolated Git worktree, holds it to an explicit budget with a usage meter, and tracks it through defined states. It holds authority over code, so it is never given a production address."
     },
     {
       "id": "dispatch",
@@ -77,7 +93,7 @@
       "name": "kpicktradingcorp.com",
       "status": "Live public B2B website on Hostinger",
       "stack": "Static HTML, hand-written Node.js backend with SQLite, PDF generation, SMTP email",
-      "metrics": "21 pages, 9 Sungshim product pages, Schema.org data on 15 pages, 116 commits",
+      "metrics": "22 pages, 9 Sungshim product pages, Schema.org data on 17 pages, 122 commits",
       "summary": "Branded PDF quotations emailed to buyers, a quote-to-purchase-order workflow with role-based staff logins, published manufacturer certificates, a Learning Centre of interactive device infographics, brand films that load only in view, sellable stock and box prices synced from the ERP every 15 minutes, security hardening with timing-safe auth and rate limits, and llms.txt plus an AI-crawler policy for answer engines."
     },
     {

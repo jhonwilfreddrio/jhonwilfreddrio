@@ -1,0 +1,33 @@
+# https://jhonwilfreddrio.netlify.app
+# Personal portfolio. Everything here is meant to be read, indexed and cited.
+
+User-agent: *
+Allow: /
+
+# Answer engines and AI crawlers are welcome: the whole point of this site is
+# to be quoted accurately. See /llms.txt for a plain-text summary.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://jhonwilfreddrio.netlify.app/sitemap.xml

@@ -315,6 +315,9 @@
         layoutMode: "fitRows",
       });
 
+      // fx.js re-lays the grid when a case study is expanded or collapsed.
+      window.portfolioIsotope = portfolioIsotope;
+
       let portfolioFilters = select("#portfolio-flters li", true);
 
       on(
