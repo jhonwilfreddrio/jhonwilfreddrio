@@ -105,5 +105,6 @@ that never get deployment authority.
 ## Links
 
 - Portfolio: https://jhonwilfreddrio.netlify.app/
+- LinkedIn: https://www.linkedin.com/in/jhonwilfreddrio/
 - Company site he built: https://kpicktradingcorp.com
 - Email: jhonwilfreddrio@gmail.com
