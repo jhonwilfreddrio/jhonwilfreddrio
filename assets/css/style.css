@@ -1573,6 +1573,45 @@ body[data-theme="light"] .theme-toggle__icon {
   color: var(--text-strong);
 }
 
+/* Hero portrait: head and eyes follow the cursor (assets/js/face.js) */
+.hero-face {
+  width: 180px;
+  aspect-ratio: 400 / 480;
+  margin-bottom: 24px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #1b2233;
+  box-shadow: var(--nm-raised);
+  cursor: pointer;
+}
+
+.hero-face img,
+.hero-face canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  #header .container {
+    padding-right: 330px;
+  }
+
+  .hero-face {
+    position: absolute;
+    top: 50%;
+    right: 46px;
+    width: 250px;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+}
+
+#header.header-top .hero-face {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
